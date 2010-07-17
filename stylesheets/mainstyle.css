@@ -1,0 +1,159 @@
+body
+{
+	font-family: sans-serif;
+	width: 80%; height: 600px;
+	margin-left: auto; margin-right: auto;
+	margin-top: 2%;
+}
+
+img { border-width: 0; }
+
+div#header
+{
+	line-height: 48px;
+}
+
+
+div#navigation
+{
+	width: 180px; float: left;
+	margin-bottom: 10px; margin-right: 20px;
+	padding-top: 10px; padding-bottom: 10px;
+	padding-left: 1em;
+	background-color: #eeeeef;
+	font-size: 10pt;
+	position: static;
+	border-radius: 20px;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+}
+
+
+div#navigation h1
+{
+	font-size: 1em;
+}
+
+
+div#navigation hr
+{
+	width: 180px;
+	margin-left: -1em;
+/*
+
+	margin-right: -4em;
+*/
+}
+
+
+div#navigation ul
+{
+	list-style-type: none;
+	list-style-position: outside;
+	margin-bottom: 20px; margin-left: 0;
+	padding-left: 10px;
+}
+
+
+div#navigation ul li
+{
+	margin-bottom: 4px;
+}
+
+
+div#navigation a
+{
+	display: block;
+	text-decoration: none;
+}
+
+
+div#navigation a:link, a:visited
+{
+	color: #9e8100;
+}
+
+
+div#navigation a:hover
+{
+	color: #a40000;
+}
+
+
+div#content
+{
+	overflow: auto;
+}
+
+
+div#content ul
+{
+	list-style-position: inside;
+}
+
+
+div#content a:link, a:visited
+{
+	color: #9e8100;
+	text-decoration: none;
+}
+
+
+div#content a:hover
+{
+	color: #a40000;
+	text-decoration: underline;
+}
+
+code, blockquote, pre.literal-block
+{
+	display: block;
+	padding-left: 4px;
+	margin-left: 25px; margin-top: 5px;
+	font-family: monospace;
+	background-color: #eeeeef;
+	border-left-width: 2px; border-right-width: 0;
+	border-top-width: 0; border-bottom-width: 0;
+	border-style: solid; border-color: #babdb6;
+	overflow-x: auto;
+}
+
+
+hr
+{
+	border-style: solid;
+	border-color: #babdb6;
+}
+
+
+table, th, td
+{
+	border-style: solid;
+	border-color: #babdb6;
+}
+
+
+/*
+ * This is for the pages with a content section. The heading of the content
+ * generated from rst2html looks like this:
+ * <p class="topic-title first">
+ *		Contents
+ *	</p>
+ * So we format it as general h3 headers look like in the browser (tested with
+ * Midori, Firefox and Opera, all work fine).
+ * FIXME: ideally the mentioned code block should be a h3 header instead
+ */
+p.topic-title
+{
+	font-size: 1.17em;
+	font-weight: bold;
+	margin: 1em 0px;
+}
+
+
+div#footer
+{
+	clear: both;
+	text-align: center;
+	font-size: smaller;
+}

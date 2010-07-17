@@ -1,0 +1,64 @@
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#note" id="id2">Note</a></li>
+<li><a class="reference internal" href="#way" id="id3">1. Way</a></li>
+<li><a class="reference internal" href="#id1" id="id4">2. Way</a></li>
+<li><a class="reference internal" href="#contact" id="id5">Contact</a></li>
+</ul>
+</div>
+<p>There are different ways to get your plugin listed here. Every possibility
+ends with contacting Dominic Hopf. He is the maintainer of this website and
+takes care of uploading the HTML files and including new plugins into
+navigation and so on.</p>
+<div class="section" id="note">
+<h3>Note</h3>
+<p>If your plugin already is part of the Geany Plugins project, you should find
+your plugin listed here. There is a cronjob running every night, which
+updates the plugins.geany.org website with latest information from the
+README files of the plugins. For this to work correctly, it is necessary
+you have a README file in trunk/geany-plugins/{your plugin name}/ which is
+written in restructuredText.</p>
+<p>If the README file is there, but still not listed on the plugins.geany.org
+website, make sure you gave the cronjob a chance to find your README and
+wait a night before contacting Dominic to have a deeper look on the issue.</p>
+</div>
+<div class="section" id="way">
+<h3>1. Way</h3>
+<ul class="simple">
+<li>create a file {your plugin name}.html</li>
+<li>edit the file manually, get inspired by the plugin sites already existing
+and keep an eye on the validity of the HTML code. It should be XHTML 1.1 -
+which is very strict.</li>
+<li>when your HTML file is finished, contact Dominic by mail and send him
+your file. He will do the rest for you.</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h3>2. Way</h3>
+<p>This one will only work, if you write your README file in restructuredText
+as some other plugin authors do. You will need to use two tools: rst2html
+and HTML Tidy. Dominic wrote some configuration files for use with those
+tools. If you do not have them yet, feel free to contact Dominic to get
+them. The result should be an almost perfect HTML file which can be
+included into the plugins.geany.org website. Do this steps to generate the
+file:</p>
+<blockquote>
+rst2html --config=rst2html_config.conf README &gt; {your plugin name}.html
+tidy -config tidy.conf {your plugin name}.html</blockquote>
+<p>While {your plugin name} is the actual UNIX name (lowercase!) of your plugin.
+Note: There is no need for HTML headers and body and so on. Those will be
+provided by the website itself. Your HTML file should just provide pure
+XHTML 1.1 validating content, it will appear within the body tags on the
+plugins.geany.org website.</p>
+<p>When you're done, have a look if your HTML file looks good (get some
+inspiration from already existing plugin sites) and send it to Dominic then.</p>
+</div>
+<div class="section" id="contact">
+<h3>Contact</h3>
+<p>The website plugins.geany.org is currently maintained by <a class="reference external" href="http://dominichopf.de">Dominic Hopf</a>. His mail address is <a class="reference external" href="mailto:dmaphy&#37;&#52;&#48;googlemail&#46;com">dmaphy<span>&#64;</span>googlemail<span>&#46;</span>com</a>. If
+you have any questions concerning this site, please consider to contact him
+first of all. If it may takes too long for an answer, feel free to kick his
+butt at the <a class="reference external" href="irc://chat.freenode.net/geany">#geany</a> IRC channel on
+chat.freenode.net.</p>
+</div>

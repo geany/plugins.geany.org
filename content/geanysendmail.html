@@ -1,0 +1,220 @@
+<h2>GeanySendMail</h2>
+<div class="contents topic" id="contents">
+	<h3 class="topic-title first">
+		Contents
+	</h3>
+	<ul class="simple">
+		<li>
+			<a class="reference internal" href="#about" id="id1" name="id1">About</a>
+		</li>
+		<li>
+			<a class="reference internal" href="#requirements" id="id2" name="id2">Requirements</a>
+		</li>
+		<li>
+			<a class="reference internal" href="#installation" id="id3" name="id3">Installation</a>
+		</li>
+		<li>
+			<a class="reference internal" href="#usage" id="id4" name="id4">Usage</a>
+		</li>
+		<li>
+			<a class="reference internal" href="#configuration" id="id5" name="id5">Configuration</a>
+		</li>
+		<li>
+			<a class="reference internal" href="#development" id="id6" name="id6">Development</a>
+		</li>
+		<li>
+			<a class="reference internal" href="#known-issues" id="id7" name="id7">Known issues</a>
+		</li>
+		<li>
+			<a class="reference internal" href="#license" id="id8" name="id8">License</a>
+		</li>
+		<li>
+			<a class="reference internal" href="#bugs-questions-bugs-homepage" id="id9" name="id9">Bugs,
+			questions, bugs, homepage</a>
+		</li>
+	</ul>
+</div>
+<div class="section" id="about">
+	<h3>
+		About
+	</h3>
+	<p>
+		GeanySendMail is a little plugin to send a document as attachment using the preferred mail
+		client from inside Geany. It is similar to the envelope symbol of most office tools and
+		requires a mail client that is supporting remote calls.
+	</p>
+
+	<p><a href="#contents">back to top</a></p>
+</div>
+<div class="section" id="requirements">
+	<h3>
+		Requirements
+	</h3>
+	<p>
+		For compiling the plugin yourself, you will need the GTK (&gt;= 2.8.0) libraries and header
+		files. You will also need its dependency libraries and header files, such as Pango, Glib and
+		ATK. All these files are available at <a class="reference external" href=
+		"http://www.gtk.org">http://www.gtk.org</a>.
+	</p>
+	<p>
+		And obviously, you will need to have Geany installed. If you have Geany installed from the
+		sources, you should be ready to go. If you used a prepared package e.g. from your distribution
+		you probably need to install an additional package, this might be called geany-dev or
+		geany-devel. Please note that in order to compile and use this plugin, you need Geany 0.16 or
+		later (Geany Plugin API v116 or higher).
+	</p>
+	<p>
+		Furthermore you need, of course, a C compiler and the Make tool. The GNU versions of these
+		tools are recommended.
+	</p>
+
+	<p><a href="#contents">back to top</a></p>
+</div>
+<div class="section" id="installation">
+	<h3>
+		Installation
+	</h3>
+	<p>
+		This version of the plugin is installed with the combined geany-plugins release. Please check
+		README of this package or download stand alone version of plugin from <a class=
+		"reference external" href=
+		"http://frank.uvena.de/en/Geany/geanysendmail/">http://frank.uvena.de/en/Geany/geanysendmail/</a>
+	</p>
+
+	<p><a href="#contents">back to top</a></p>
+</div>
+<div class="section" id="usage">
+	<h3>
+		Usage
+	</h3>
+	<p>
+		After installed successfully, load the plugin in Geany's plugin manager and a new menu item in
+		the Tools menu will appear. Before you can start you need to configure your mail client. This
+		can be done in the configuration dialog (details on it later). You can also assign a keyboard
+		shortcut in Geany's preferences dialog to send your document.
+	</p>
+
+	<p><a href="#contents">back to top</a></p>
+</div>
+<div class="section" id="configuration">
+	<h3>
+		Configuration
+	</h3>
+	<p>
+		In the configuration dialog you can set up a command that is called by the plugin to
+		communicate with your mail client. Depending on what's your favorite mailer, the command will
+		differ. A number of placeholders are available for doing this:
+	</p>
+	<ul>
+		<li>
+			%s: Will be replaced by the complete path of the file that should be send.
+		</li>
+		<li>
+			%r: Will be replaced by one or more recipient's email address that can be
+				entered inside a separate dialog. (Please remember during input, what your mail client
+				is expecting here)
+		</li>
+		<li>
+			%b: Will be replace by the file name. For a file /tmp/foo.baa it will be
+				replaced by foo.baa.
+		</li>
+	</ul>
+	<p>
+		Depending on how you like to use, you can combine all of the placeholders to build up your
+		command. It is possible to use one placeholder several times. When using keep care, as the
+		placeholders are replace step by step, so a filename containing %b might have some funny
+		outcome. However, examples could be:
+	</p>
+	<p>Sylpheed:</p>
+	<code>sylpheed --attach &quot;%f&quot; --compose &quot;%r&quot;</code>
+
+	<p>mutt:</p>
+	<code>mutt -s &quot;Sending '%b'&quot; -a &quot;%f&quot; &quot;%r&quot;</code>
+
+	<p>Mozilla Thunderbird at Windows:</p>
+	<code>&quot;C:Program FilesMozilla Thunderbirdthunderbird.exe&quot;
+			-compose to=&quot;%r&quot;,subject=&quot;%b&quot;,attachment=&quot;%f&quot;</code>
+
+	<p>
+		In theory it should also work together with tools like Microsoft Outlook - Unfortunately the
+		author wasn't able to bring it up running. Input for the correct commandline is highly welcome.
+	</p>
+
+	<p><a href="#contents">back to top</a></p>
+</div>
+<div class="section" id="development">
+	<h3>
+		Development
+	</h3>
+	<p>
+		You can checkout the current source code from the Subversion repository at Sourceforge.net. Get
+		the code from:
+	</p>
+	<code>
+		svn checkout <a class="reference external" href=
+		"http://geany-plugins.svn.sourceforge.net/svnroot/geany-plugins/trunk/geanysendmail">http://geany-plugins.svn.sourceforge.net/svnroot/geany-plugins/trunk/geanysendmail</a>
+	</code>
+	<p>
+		As this plugin is part of the combined geany-plugins release, you may also like to check its
+		Subversion repository by checking ou
+	</p>
+	<code>
+		svn checkout <a class="reference external" href=
+		"http://geany-plugins.svn.sourceforge.net/svnroot/geany-plugins/trunk/geany-plugins/">http://geany-plugins.svn.sourceforge.net/svnroot/geany-plugins/trunk/geany-plugins/</a>
+	</code>
+	<p>
+		If you want to create a patch, please respect the license of GeanySendMail (GPLv2 or above) as
+		well as intellectual property of third. Patches that should be included to the default
+		distribution must be licensed under the same conditions as GeanySendMail by the copyright
+		owner.
+	</p>
+
+	<p><a href="#contents">back to top</a></p>
+</div>
+<div class="section" id="known-issues">
+	<h3>
+		Known issues
+	</h3>
+	<p>
+		In case you are working with white spaces either in your path names, file names or at mail
+		addresses (e.g. for separating two addresses) you should keep care of proper quoting since %s,
+		%b and %r will be replaced without any quotes.
+	</p>
+	<p>
+		For more recent information all reported issues will be tracked at <a class=
+		"reference external" href=
+		"http://sourceforge.net/tracker/?group_id=222729">http://sourceforge.net/tracker/?group_id=222729</a>
+	</p>
+
+	<p><a href="#contents">back to top</a></p>
+</div>
+<div class="section" id="license">
+	<h3>
+		License
+	</h3>
+	<p>
+		GeanySendMail and all its parts is distributed under the terms of the GNU General Public
+		License as published by the Free Software Foundation; either version 2 of the License, or (at
+		your option) any later version. A copy of this license can be found in the file COPYING
+		included with the source code of this program. If not, you will be able to get a copy by
+		contacting the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+		02110-1301, USA.
+	</p>
+
+	<p><a href="#contents">back to top</a></p>
+</div>
+<div class="section" id="bugs-questions-bugs-homepage">
+	<h3>
+		Bugs, questions, bugs, homepage
+	</h3>
+	<p>
+		If you found any bugs or want to provide a patch, please contact Frank Lanitz
+		(frank(at)geany(dot)org). Please also do so, if you got any questions and visiting <a class=
+		"reference external" href=
+		"http://frank.uvena.de/en/Geany/geanysendmail">http://frank.uvena.de/en/Geany/geanysendmail</a>
+		didn't help you to figure out the answer. Visiting the website is also a good start if you want
+		to check for any update on this plugin.
+	</p>
+
+	<p><a href="#contents">back to top</a></p>
+</div>

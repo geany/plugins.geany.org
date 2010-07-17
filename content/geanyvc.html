@@ -1,0 +1,379 @@
+<div class="contents topic" id="contents">
+	<p class="topic-title first">
+		Contents
+	</p>
+	<ul class="simple">
+		<li>
+			<a class="reference internal" href="#about" id="id1" name="id1">About</a>
+		</li>
+		<li>
+			<a class="reference internal" href="#features" id="id2" name="id2">Features</a>
+		</li>
+		<li>
+			<a class="reference internal" href="#requirements" id="id3" name="id3">Requirements</a>
+		</li>
+		<li>
+			<a class="reference internal" href="#usage" id="id4" name="id4">Usage</a>
+		</li>
+		<li>
+			<a class="reference internal" href="#license" id="id5" name="id5">License</a>
+		</li>
+		<li>
+			<a class="reference internal" href="#ideas-questions-patches-and-bug-reports" id="id6" name=
+			"id6">Ideas, questions, patches and bug reports</a>
+		</li>
+		<li>
+			<a class="reference internal" href="#coding" id="id7" name="id7">Coding</a>
+		</li>
+		<li>
+			<a class="reference internal" href="#style" id="id8" name="id8">Style</a>
+		</li>
+		<li>
+			<a class="reference internal" href="#download" id="id9" name="id9">Download</a>
+			<ul>
+				<li>
+					<a class="reference internal" href="#gentoo" id="id10" name="id10">Gentoo</a>
+				</li>
+				<li>
+					<a class="reference internal" href="#arch-linux" id="id11" name="id11">Arch linux</a>
+				</li>
+				<li>
+					<a class="reference internal" href="#source-mage" id="id12" name="id12">Source Mage</a>
+				</li>
+				<li>
+					<a class="reference internal" href="#windows" id="id13" name="id13">Windows</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+<div class="section" id="about">
+	<h3>
+		About
+	</h3>
+	<p>
+		geanyvc is plugin that provides a uniform way of accessing the different version-control
+		systems inside Geany IDE. Only small subset of vc is implemented, but, hey, you don't need
+		anything besides diff, log, status, revert and commit most time.
+	</p>
+	<p>
+		In order to use it you need Geany 0.16.
+	</p>
+</div>
+<div class="section" id="features">
+	<h3>
+		Features
+	</h3>
+	<p>
+		geanyvc currently support the following version control systems:
+	</p>
+	<p>
+		Bazaar, GIT, Mercurial, Subversion, SVK:
+	</p>
+	<pre class="literal-block">
+* diff file
+* diff directory
+* diff base directory
+* blame
+* log file
+* log directory
+* log base directory
+* status
+* revert file
+* revert directory
+* revert base directory
+* show unmodified original file
+* add file
+* remove file
+* update
+* commit
+</pre>
+	<p>
+		CVS:
+	</p>
+	<pre class="literal-block">
+* diff file
+* diff directory
+* diff base directory
+* log file
+* log directory
+* log base directory
+* status
+* revert file
+* revert directory
+* revert base directory
+* update
+</pre>
+</div>
+<div class="section" id="requirements">
+	<h3>
+		Requirements
+	</h3>
+	<p>
+		For compiling the plugin yourself, you will need the GTK (&gt;= 2.6.0) libraries and header
+		files. You will also need its dependency libraries and header files, such as Pango, Glib and
+		ATK. All these files are available at <a class="reference external" href=
+		"http://www.gtk.org">http://www.gtk.org</a>. If you like to use spellchecking for your commit
+		messages you will also need gtkspell (&gt;=2.0), but this is only optional.
+	</p>
+	<p>
+		And obviously, you will need have Geany installed. If you have Geany installed from the
+		sources, you should be ready to go. If you used a prepared package e.g. from your distribution
+		you probably need to install an additional package, this might be called geany-dev or
+		geany-devel. Please note that in order to compile and use this plugin, you need Geany 0.15 or
+		later.
+	</p>
+	<p>
+		Furthermore you need, of course, a C compiler and the Make tool. The GNU versions of these
+		tools are recommended.
+	</p>
+</div>
+<div class="section" id="usage">
+	<h3>
+		Usage
+	</h3>
+	<p>
+		After compiling and/or installing geanyvc, start Geany and go to menu Tools-&gt;Plugin Manager
+		and set checkbox at VC plugin.
+	</p>
+	<p>
+		You can configure the following options:
+	</p>
+	<ul class="simple">
+		<li>Set Change flag for document tabs created with pluging.
+		</li>
+	</ul>
+	<p>
+		If this option is activated, every new by the VC-plugin created document tab will be marked as
+		changed. Even thus this option is useful in some cases, it could cause a big number of
+		sometimes annoying &quot;Do you want to save&quot;-dialogs.
+	</p>
+	<ul class="simple">
+		<li>Confirm adding new files to a VCS
+		</li>
+	</ul>
+	<p>
+		Shows a confirmation dialog on adding a new (created) file to VCS. If not set you will not see
+		dialog &quot;Do you want to add &lt;file&gt;?&quot;
+	</p>
+	<ul class="simple">
+		<li>Maximize commit dialog
+		</li>
+	</ul>
+	<p>
+		If this option is activated, commit dialog will fit the full size of your monitor. If it is not
+		set commit dialog size will be 700x500.
+	</p>
+	<ul class="simple">
+		<li>Use external diff viewer
+		</li>
+	</ul>
+	<p>
+		If this option is activated and you have <strong>meld</strong>, <strong>kompare</strong>,
+		<strong>kdiff3</strong>, <strong>diffuse</strong> or <strong>tkdiff</strong> available from
+		command line, one of these program will be used to show differences for &quot;Diff From Current
+		File&quot; command.
+	</p>
+	<ul class="simple">
+		<li>Enable CVS/GIT/SVN/SVK/Bazaar/Mercurial
+		</li>
+	</ul>
+	<p>
+		geanyvc detect if opened file is in version control by checking directories and executing
+		commands from version control systems toolchain. These options disable checking for particular
+		version control system. Disabling not required ones can speed up things. So it is recommended
+		to activate svk only if you want to use it, since it is quiet slow.
+	</p>
+</div>
+<div class="section" id="license">
+	<h3>
+		License
+	</h3>
+	<p>
+		geanyvc is distributed under the terms of the GNU General Public License as published by the
+		Free Software Foundation; either version 2 of the License, or (at your option) any later
+		version. A copy of this license can be found in the file COPYING included with the source code
+		of this program.
+	</p>
+</div>
+<div class="section" id="ideas-questions-patches-and-bug-reports">
+	<h3>
+		Ideas, questions, patches and bug reports
+	</h3>
+	<p>
+		If you add something, or fix a bug, please send a patch (in 'diff -u' format) to the geany
+		mailing list or to one of the authors listed bellow.
+	</p>
+</div>
+<div class="section" id="coding">
+	<h3>
+		Coding
+	</h3>
+	<p>
+		Use static functions where possible. Try to use GLib types and functions - e.g. g_free instead
+		of free and try to use only GLib 2.6 and GTK 2.6 functions. At least for the moment, we want to
+		keep the minimum requirement for GTK at 2.6.
+	</p>
+</div>
+<div class="section" id="style">
+	<h3>
+		Style
+	</h3>
+	<p>
+		The file indent-all.sh contains information about the current code style. Run this script
+		before commit.
+	</p>
+</div>
+<div class="section" id="download">
+	<h3>
+		Download
+	</h3>
+	<p>
+		The current version is:
+	</p>
+	<table border="1" class="docutils">
+		<colgroup>
+			<col width="15%" />
+			<col width="17%" />
+			<col width="67%" />
+		</colgroup>
+		<thead valign="bottom">
+			<tr>
+				<th class="head">
+					Geany Version
+				</th>
+				<th class="head">
+					Geanyvc Version
+				</th>
+				<th class="head">
+					Download
+				</th>
+			</tr>
+		</thead>
+		<tbody valign="top">
+			<tr>
+				<td>
+					0.16
+				</td>
+				<td>
+					0.5
+				</td>
+				<td>
+					<a class="reference external" href=
+					"http://users.cosmostv.by/yurand/geanyvc/geanyvc-0.5.tar.gz">http://users.cosmostv.by/yurand/geanyvc/geanyvc-0.5.tar.gz</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		Up to date source code can be downloaded here:
+	</p>
+	<pre class="literal-block">
+svn checkout http://geany-plugins.svn.sourceforge.net/svnroot/geany-plugins/trunk/geanyvc
+</pre>
+	<p>
+		If you have old version of Geany installed you need old version of plugin as well. These
+		versions of plugin are no longer supported and if you find bug in one of them, it won't be
+		fixed unless you do it yourself.
+	</p>
+	<table border="1" class="docutils">
+		<colgroup>
+			<col width="15%" />
+			<col width="17%" />
+			<col width="67%" />
+		</colgroup>
+		<thead valign="bottom">
+			<tr>
+				<th class="head">
+					Geany Version
+				</th>
+				<th class="head">
+					Geanyvc Version
+				</th>
+				<th class="head">
+					Download
+				</th>
+			</tr>
+		</thead>
+		<tbody valign="top">
+			<tr>
+				<td>
+					0.15
+				</td>
+				<td>
+					0.4
+				</td>
+				<td>
+					<a class="reference external" href=
+					"http://users.cosmostv.by/yurand/geanyvc/geanyvc-0.4.tar.gz">http://users.cosmostv.by/yurand/geanyvc/geanyvc-0.4.tar.gz</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					0.14
+				</td>
+				<td>
+					0.3
+				</td>
+				<td>
+					<a class="reference external" href=
+					"http://users.cosmostv.by/yurand/geanyvc/geanyvc-0.3.tar.gz">http://users.cosmostv.by/yurand/geanyvc/geanyvc-0.3.tar.gz</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					0.13
+				</td>
+				<td>
+					0.2
+				</td>
+				<td>
+					<a class="reference external" href=
+					"http://users.cosmostv.by/yurand/geanyvc/geanyvc-0.2.tar.gz">http://users.cosmostv.by/yurand/geanyvc/geanyvc-0.2.tar.gz</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="section" id="gentoo">
+		<h4>
+			Gentoo
+		</h4>
+		<p>
+			Gentoo ebuild is available here: <a class="reference external" href=
+			"http://bugs.gentoo.org/show_bug.cgi?id=218522">http://bugs.gentoo.org/show_bug.cgi?id=218522</a>
+		</p>
+	</div>
+	<div class="section" id="arch-linux">
+		<h4>
+			Arch linux
+		</h4>
+		<p>
+			A package for Arch Linux is available here: <a class="reference external" href=
+			"http://aur.archlinux.org/packages.php?ID=16484">http://aur.archlinux.org/packages.php?ID=16484</a>
+		</p>
+	</div>
+	<div class="section" id="source-mage">
+		<h4>
+			Source Mage
+		</h4>
+		<p>
+			To install geanyvc, just run the following command:
+		</p>
+		<pre class="literal-block">
+cast geanyvc
+</pre>
+	</div>
+	<div class="section" id="windows">
+		<h4>
+			Windows
+		</h4>
+		<p>
+			A windows installer is available here: <a class="reference external" href=
+			"http://users.cosmostv.by/yurand/geanyvc/geanyvc-0.4_setup.exe">http://users.cosmostv.by/yurand/geanyvc/geanyvc-0.4_setup.exe</a>
+		</p>
+		<p>
+			-- 2007-2008 by Yura Siamashka and Frank Lanitz yurand2(at)gmail(dot)com
+			frank(at)frank(dot)uvena(dot)de
+		</p>
+	</div>
+</div>

@@ -1,0 +1,385 @@
+<div class="contents topic" id="contents">
+	<p class="topic-title first">
+		Contents
+	</p>
+	<ul class="simple">
+		<li>
+			<a class="reference internal" href="#about" id="id1" name="id1">About</a>
+			<ul>
+				<li>
+					<a class="reference internal" href="#why-it-was-created" id="id2" name="id2">Why it was
+					created?</a>
+				</li>
+				<li>
+					<a class="reference internal" href=
+					"#why-different-project-manager-why-don-t-improve-existing-code-in-geany" id="id3" name=
+					"id3">Why different project manager, why don't improve existing code in Geany?</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a class="reference internal" href="#usage" id="id4" name="id4">Usage</a>
+			<ul>
+				<li>
+					<a class="reference internal" href="#project-properties" id="id5" name="id5">Project
+					properties</a>
+				</li>
+				<li>
+					<a class="reference internal" href="#example-of-usage" id="id6" name="id6">Example of
+					usage</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a class="reference internal" href="#license" id="id7" name="id7">License</a>
+		</li>
+		<li>
+			<a class="reference internal" href="#ideas-questions-patches-and-bug-reports" id="id8" name=
+			"id8">Ideas, questions, patches and bug reports</a>
+		</li>
+		<li>
+			<a class="reference internal" href="#coding" id="id9" name="id9">Coding</a>
+		</li>
+		<li>
+			<a class="reference internal" href="#style" id="id10" name="id10">Style</a>
+		</li>
+		<li>
+			<a class="reference internal" href="#download" id="id11" name="id11">Download</a>
+			<ul>
+				<li>
+					<a class="reference internal" href="#gentoo" id="id12" name="id12">Gentoo</a>
+				</li>
+				<li>
+					<a class="reference internal" href="#arch-linux" id="id13" name="id13">Arch linux</a>
+				</li>
+				<li>
+					<a class="reference internal" href="#windows" id="id14" name="id14">Windows</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+<div class="section" id="about">
+	<h3>
+		About
+	</h3>
+	<p>
+		geanyprj is alternative project manager for Geany fast light IDE. In order to use it you need
+		Geany 0.16.
+	</p>
+	<div class="section" id="why-it-was-created">
+		<h4>
+			Why it was created?
+		</h4>
+		<p>
+			Open source is great, there are a lot of nice sources that you can use for your projects in
+			Internet. But there are also a lot of crappy sources and when you want steal something you
+			need to check if it is good or not. Ability to jump to definition/declaration and back is
+			great help for such task. But no other text editor or IDE I know allow this without a lot of
+			setuping. You have to create/import project add files. When you finish with one project you
+			need to close it and repeat procedure for all other. Great time wasting. If you are checking
+			about 10 potential places you want steal code from, you won't create any project and don't
+			get &quot;jump to definition/declaration&quot; just because it is too much bother.
+		</p>
+		<p>
+			geanyprj aims to provide &quot;jump to definition/declaration&quot; functions with as little
+			setup as possible.
+		</p>
+	</div>
+	<div class="section" id="why-different-project-manager-why-don-t-improve-existing-code-in-geany">
+		<h4>
+			Why different project manager, why don't improve existing code in Geany?
+		</h4>
+		<p>
+			That's because current project manager in Genny more about sessions. It is not something real
+			project manager should do (IMHO). It allow/require user manually open/close project and allow
+			to store project files in different locations from project sources.
+		</p>
+		<p>
+			geanyprj takes different approach:
+		</p>
+		<p>
+			1) Never save session information (this way project files can be stored in version control
+			without constant noise from changes of opened files or cursor position)
+		</p>
+		<p>
+			2) Never open/close project manually. If .geanyprj file is found somewhere up in path it will
+			be opened automatically.
+		</p>
+	</div>
+</div>
+<div class="section" id="usage">
+	<h3>
+		Usage
+	</h3>
+	<p>
+		geanyprj add &quot;Tools-&gt;Project&quot; menu and sidebar &quot;Project&quot; tab.
+	</p>
+	<div class="section" id="project-properties">
+		<h4>
+			Project properties
+		</h4>
+		<p>
+			Name - This is just project name you will see it in status window on open/close project.
+		</p>
+		<p>
+			Location - This is directory where .geanyprj file will be saved.
+		</p>
+		<p>
+			Base Path - If defined Geany will use this directory as current directory for make and run
+			commands
+		</p>
+		<p>
+			Generate file list on load - This option tell Geany to recreate project file list on project
+			load using selected type. If it is unchecked you should manually select files you want to be
+			parsed by tagmanager.
+		</p>
+		<p>
+			Type - This is type of files that needed to be parsed by tagmanager.
+		</p>
+		<blockquote>
+			<ul class="simple">
+				<li>All - All files that is known to Geany
+				</li>
+				<li>C/C++ - This match any C or C++ files (.c, .cpp, .cxx, .h etc.)
+				</li>
+				<li>C - This match only C files (.c, .h)
+				</li>
+				<li>Python - This match python files (.py)
+				</li>
+				<li>None - This doesn't match any files
+				</li>
+			</ul>
+		</blockquote>
+	</div>
+	<div class="section" id="example-of-usage">
+		<h4>
+			Example of usage
+		</h4>
+		<p>
+			Lets see plugin work at Geany source code example:
+		</p>
+		<ol class="arabic simple">
+			<li>Download geany-0.15.tar.gz (<a class="reference external" href=
+			"http://prdownloads.sourceforge.net/geany/geany-0.15.tar.gz?download">http://prdownloads.sourceforge.net/geany/geany-0.15.tar.gz?download</a>)
+			</li>
+			<li>Unpack it somewhere, for example in ~/src/geany-0.15
+			</li>
+			<li>Open ~/src/geany-0.15/configure.in
+			</li>
+			<li>Click &quot;Tools-&gt;Project-&gt;New Project&quot;, and click &quot;Create&quot; button
+			</li>
+		</ol>
+		<blockquote>
+			This will create and save .geanyprj file in ~/src/geany-0.15. From now, every time you open
+			file from ~/src/geany-0.15 dirrectory or it's subdirrectory .geanyprj will be opened. So next
+			time you don't have to create or open project manually.
+		</blockquote>
+		<ol class="arabic simple" start="5">
+			<li>Open any geany source code code file
+			</li>
+		</ol>
+		<blockquote>
+			&quot;go to tag declaration/definition&quot; should work for any geany function. (Not limited
+			to opened files).
+		</blockquote>
+		<ol class="arabic simple" start="6">
+			<li>Now you open file that doesn't belong to Geany. For example ~/src/myprj/a.c Geany project
+			will be closed. If ~/src/myprj/.geanyprj exists it will be opened as current project.
+			</li>
+			<li>Switching back to any Geany file will open Geany project again.
+			</li>
+		</ol>
+	</div>
+</div>
+<div class="section" id="license">
+	<h3>
+		License
+	</h3>
+	<p>
+		geanyprj is distributed under the terms of the GNU General Public License as published by the
+		Free Software Foundation; either version 3 of the License, or (at your option) any later
+		version. A copy of this license can be found in the file COPYING included with the source code
+		of this program.
+	</p>
+</div>
+<div class="section" id="ideas-questions-patches-and-bug-reports">
+	<h3>
+		Ideas, questions, patches and bug reports
+	</h3>
+	<p>
+		If you add something, or fix a bug, please send a patch (in 'diff -u' format) to the geany
+		mailing list or to one of the authors listed bellow.
+	</p>
+</div>
+<div class="section" id="coding">
+	<h3>
+		Coding
+	</h3>
+	<p>
+		Use static functions where possible. Try to use GLib types and functions - e.g. g_free instead
+		of free and try to use only GLib 2.6 and GTK 2.6 functions.
+	</p>
+</div>
+<div class="section" id="style">
+	<h3>
+		Style
+	</h3>
+	<p>
+		The file indent-all.sh contains information about the current code style. Run this script
+		before commit.
+	</p>
+</div>
+<div class="section" id="download">
+	<h3>
+		Download
+	</h3>
+	<p>
+		The current version is:
+	</p>
+	<table border="1" class="docutils">
+		<colgroup>
+			<col width="15%" />
+			<col width="18%" />
+			<col width="67%" />
+		</colgroup>
+		<thead valign="bottom">
+			<tr>
+				<th class="head">
+					Geany Version
+				</th>
+				<th class="head">
+					GeanyPrj Version
+				</th>
+				<th class="head">
+					Download
+				</th>
+			</tr>
+		</thead>
+		<tbody valign="top">
+			<tr>
+				<td>
+					0.16
+				</td>
+				<td>
+					0.6
+				</td>
+				<td>
+					<a class="reference external" href=
+					"http://users.cosmostv.by/yurand/geanyprj/geanyprj-0.5.tar.gz">http://users.cosmostv.by/yurand/geanyprj/geanyprj-0.5.tar.gz</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		Up to date source code can be downloaded here:
+	</p>
+	<pre class="literal-block">
+svn checkout http://geany-plugins.svn.sourceforge.net/svnroot/geany-plugins/trunk/geanyprj
+</pre>
+	<p>
+		If you have old version of Geany installed you need old version of plugin as well. These
+		versions of plugin are no longer supported and if you find bug in one of them, it won't be
+		fixed unless you do it yourself.
+	</p>
+	<table border="1" class="docutils">
+		<colgroup>
+			<col width="15%" />
+			<col width="18%" />
+			<col width="67%" />
+		</colgroup>
+		<thead valign="bottom">
+			<tr>
+				<th class="head">
+					Geany Version
+				</th>
+				<th class="head">
+					GeanyPrj Version
+				</th>
+				<th class="head">
+					Download
+				</th>
+			</tr>
+		</thead>
+		<tbody valign="top">
+			<tr>
+				<td>
+					0.16
+				</td>
+				<td>
+					0.5
+				</td>
+				<td>
+					<a class="reference external" href=
+					"http://users.cosmostv.by/yurand/geanyprj/geanyprj-0.5.tar.gz">http://users.cosmostv.by/yurand/geanyprj/geanyprj-0.5.tar.gz</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					0.15
+				</td>
+				<td>
+					0.4
+				</td>
+				<td>
+					<a class="reference external" href=
+					"http://users.cosmostv.by/yurand/geanyprj/geanyprj-0.4.tar.gz">http://users.cosmostv.by/yurand/geanyprj/geanyprj-0.4.tar.gz</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					0.14
+				</td>
+				<td>
+					0.3
+				</td>
+				<td>
+					<a class="reference external" href=
+					"http://users.cosmostv.by/yurand/geanyprj/geanyprj-0.3.tar.gz">http://users.cosmostv.by/yurand/geanyprj/geanyprj-0.3.tar.gz</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					0.13
+				</td>
+				<td>
+					0.2
+				</td>
+				<td>
+					<a class="reference external" href=
+					"http://users.cosmostv.by/yurand/geanyprj/geanyprj-0.2.tar.gz">http://users.cosmostv.by/yurand/geanyprj/geanyprj-0.2.tar.gz</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="section" id="gentoo">
+		<h4>
+			Gentoo
+		</h4>
+		<p>
+			Gentoo ebuild is available here: <a class="reference external" href=
+			"http://bugs.gentoo.org/show_bug.cgi?id=218506">http://bugs.gentoo.org/show_bug.cgi?id=218506</a>
+		</p>
+	</div>
+	<div class="section" id="arch-linux">
+		<h4>
+			Arch linux
+		</h4>
+		<p>
+			A package for Arch Linux is available here: <a class="reference external" href=
+			"http://aur.archlinux.org/packages.php?ID=16477">http://aur.archlinux.org/packages.php?ID=16477</a>
+		</p>
+	</div>
+	<div class="section" id="windows">
+		<h4>
+			Windows
+		</h4>
+		<p>
+			A windows installer is available here: <a class="reference external" href=
+			"http://users.cosmostv.by/yurand/geanyprj/geanyprj-0.5_setup.exe">http://users.cosmostv.by/yurand/geanyprj/geanyprj-0.5_setup.exe</a>
+		</p>
+		<p>
+			2007-2008 by Yura Siamashka yurand2(at)gmail(dot)com
+		</p>
+	</div>
+</div>
