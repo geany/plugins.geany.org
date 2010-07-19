@@ -87,8 +87,6 @@ print '<?xml version="1.0"?>';
 	</div>
 
 	<div id="footer">
-		&copy; SweetGeany. The sweetest, fastest, leightweight integrated
-		development environment ever seen.<br />
 		Contact <a href="http://dominichopf.de/">Dominic Hopf</a> or the
 		<a href="http://www.geany.org/Support/MailingList">Geany Team</a>
 		for questions.
