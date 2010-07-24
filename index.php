@@ -4,8 +4,9 @@
  * 		Website plugins.geany.org
  *
  *      (C) Copyright 2009 by Dominic Hopf <dmaphy@googlemail.com>
+ * 		(C) Copyright 2010 by Michael Spahn <m.spahn@any0n3.de>
  *      Version: 1.0.0
- *      Last Change: 2009-12-20
+ *      Last Change: 2010-7-24
  */
 
 define('CONTENTPATH','./content/');
@@ -87,6 +88,7 @@ print '<?xml version="1.0"?>';
 	</div>
 
 	<div id="footer">
+		&copy; Dominic Hopf &amp; Michael Spahn <br /> 
 		Contact <a href="http://dominichopf.de/">Dominic Hopf</a> or the
 		<a href="http://www.geany.org/Support/MailingList">Geany Team</a>
 		for questions.
