@@ -76,11 +76,16 @@ print '<?xml version="1.0"?>';
 
 		<hr />
 
-		<a href="http://geany.org/">Geany</a>
+		<ul>
+			<li><a href="http://geany.org/">Geany</a></li>
+		</ul>
 
 		<hr />
 
-		<a href="index.php?site=README">List or update a plugin</a>
+		<ul>
+			<li><a href="index.php?site=README">List or update a plugin</a></li>
+		</ul>
+
 	</div>
 
 	<div id="content">
@@ -88,7 +93,7 @@ print '<?xml version="1.0"?>';
 	</div>
 
 	<div id="footer">
-		&copy; Dominic Hopf &amp; Michael Spahn <br /> 
+		&copy; Dominic Hopf &amp; Michael Spahn <br />
 		Contact <a href="http://dominichopf.de/">Dominic Hopf</a> or the
 		<a href="http://www.geany.org/Support/MailingList">Geany Team</a>
 		for questions.
