@@ -6,7 +6,7 @@ SOURCEDIR="/home/dmaphy/webroot/websites/plugins.geany.org/"
 PREVIEWDIR="/home/dmaphy/plugins.geany.org_preview/"
 STABLEDIR="/home/dmaphy/plugins.geany.org_stable/"
 BACKUPDIR="/home/dmaphy/plugins.geany.org.backup/"
-EXCLUDE=".svn gencontent.sh push2stable.sh rst2html_template.txt templates tidy.conf rst2html_config.conf"
+EXCLUDE=".svn gencontent* *.sh rst2html* templates *.conf addons geany-plugins geanydoc geanylua geanyprj geanyvc spellcheck"
 
 
 if [ ! -d $SOURCEDIR ]; then
