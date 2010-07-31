@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+#~ set -x
 
 PREVIEWDIR="/home/dmaphy/webroot/websites/plugins.geany.org/"
 STABLEDIR="/home/dmaphy/plugins.geany.org/"
