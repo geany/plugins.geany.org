@@ -61,7 +61,7 @@ else
 	case $1 in
 		"preview")
 			# backup is not necessary, when pushing to preview..
-			rsync -avC $EXARG --delete $PREVIEWDIR $STABLEDIR
+			rsync -avC $EXARG --delete $SOURCEDIR $PREVIEWDIR
 			;;
 		"stable")
 			# check if $STABLEDIR is empty and backup if it is not
