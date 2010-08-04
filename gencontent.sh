@@ -116,7 +116,8 @@ do
 
 		if [ $? -eq 0 ]; then # ... if yes, ...
 			# ... add it to the navigation ...
-			echo "<li><a href=\"index.php?site=$i\">$i</a></li>" >> $CONTENTDIR"geany-plugins-listing.html"
+			title=`echo ${i} | sed 's/\([a-z]\)\([a-zA-Z0-9]*\)/\u\1\2/g'`
+			echo "<li><a href=\"index.php?site=$i\">${title}</a></li>" >> $CONTENTDIR"geany-plugins-listing.html"
 			continue # ... and jump to the next one
 		fi;
 
@@ -128,7 +129,8 @@ do
 			# TODO: there is still output from rst2html to the shell, that ideally should'nt be
 			# TODO: newer versions of rst2html may face problems with the configuration files encoding
 			$RST2HTML -s --config=$CONTENTDIR"rst2html_config.conf" $SOURCESDIR$i/README | tee .README.html >> $LOGFILE 2>&1
-			echo "<li><a href=\"index.php?site=$i\">$i</a></li>" >> $CONTENTDIR"geany-plugins-listing.html"
+			title=`echo ${i} | sed 's/\([a-z]\)\([a-zA-Z0-9]*\)/\u\1\2/g'`
+			echo "<li><a href=\"index.php?site=$i\">${title}</a></li>" >> $CONTENTDIR"geany-plugins-listing.html"
 
 			if [ $? -ne 0 ]; then
 				echo -e "$RST2HTML exited with $?.\n\n"
