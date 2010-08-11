@@ -1,0 +1,51 @@
+<h2>Install Geany-Plugins</h2>
+<p>There are different ways to get the Geany-Plugins project onto your system.
+The easiest is, to ask the package manager software of the distribution
+you are using.</p>
+
+<h3>Packages</h3>
+<h4>Fedora (yum)</h4>
+<code>yum install geany-plugins</code>
+<p>or do a</p>
+
+<code>yum search geany-plugins</code>
+<p>to get the available plugins listed and
+install the plugin you like to use via</p>
+<code>yum install geany-plugins-{pluginname}</code>
+
+<h4>Debian and Ubuntu (apt)</h4>
+<p>Install via</p>
+<code>apt-get install geany-plugins</code>
+
+<h4>Other distributions</h4>
+<p>Please feel free to let us know of any other install command for the
+distribution or rather package manager you are using.</p>
+
+<h3>Compile yourself</h3>
+<p>See the downloads page to get a tarball of Geany-Plugins and unpack it.
+(tar xzf tarball.tar.gz or tar xjf tarball.tar.bz2). Then use either waf
+(recommended) or autotools (deprecated), to compile and install it. Note you
+will need to have different compile tools (such as gcc) and libraries
+(e.g. CTPL for GeanyGenDoc) installed.</p>
+
+<h4>waf (recommended)</h4>
+<p>Note that waf needs python to be installed, which is the case on most modern
+Linux distributions. In case you do not have python installed, you may want
+to read further with the autotools way below.<br />
+To use waf </p>
+<code>./waf configure<br />./waf build -p<br />./waf install</code>
+<p>You can get more detailed information about the possibilities with waf via</p>
+<code>./waf --help</code>
+
+<h4>autotools (deprecated)</h4>
+<p>This is the way to build Geany-Plugins which you may better know, because
+it's more widely used. Anyway, the recommended way to compile Geany-Plugins
+is the previous mentioned way via waf. The possibility to use autotools to
+compile and install Geany-Plugins is provided for compatibility reasons, if
+you do not have installed python or there is any other reason which prevents
+you from using waf.<br />
+For compiling Geany-Plugins with autotools, do the following:
+</p>
+<code>./configure<br />make<br />make install</code>
+<p>You can get more detailed information about possibilities by running</p>
+<code>./configure --help</code>
