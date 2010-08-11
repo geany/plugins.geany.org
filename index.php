@@ -70,6 +70,13 @@ print '<?xml version="1.0"?>';
 		<hr />
 
 		<ul>
+			<li><a href="index.php?site=downloads">Downloads</a></li>
+			<li><a href="index.php?site=install">Install</a></li>
+		</ul>
+
+		<hr />
+
+		<ul>
 			<li><a href="index.php?site=licensing">Licensing</a></li>
 			<li><a href="index.php?site=about">About</a></li>
 		</ul>
