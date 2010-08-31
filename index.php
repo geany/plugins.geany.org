@@ -29,8 +29,6 @@ else
 	define('CONTENTFILE', CONTENTPATH . 'start.html');
 }
 
-
-
 print '<?xml version="1.0"?>';
 ?>
 
@@ -92,7 +90,6 @@ print '<?xml version="1.0"?>';
 		<ul>
 			<li><a href="index.php?site=README">List or update a plugin</a></li>
 		</ul>
-
 	</div>
 
 	<div id="content">

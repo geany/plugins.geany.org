@@ -92,6 +92,8 @@ in_array()
 if [ ! -d $SOURCESDIR ]; then
 	echo -e "Directory containing sources $SOURCESDIR could not be found!\n"
 	exit 1
+else
+	svn update $SOURCESDIR
 fi
 
 
