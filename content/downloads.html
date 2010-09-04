@@ -27,7 +27,6 @@ if($handle = opendir('geany-plugins'))
 		echo "<table>";
 		echo "<tr>";
 		echo "	<th>Name</th>";
-		echo "	<th>Download</th>";
 		echo "	<th>SIG</th>";
 		echo "</tr>";
 
@@ -35,8 +34,7 @@ if($handle = opendir('geany-plugins'))
 			file_exists($dir . "geany-plugins-" . $version . ".tar.gz.sig"))
 		{
 			echo "<tr>";
-			echo "	<td>geany-plugins-" . $version . ".tar.gz</td>";
-			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.gz\">Download</a></td>";
+			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.gz\">geany-plugins-" . $version . ".tar.gz</a></td>";
 			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.gz.sig\">SIG</a></td>";
 			echo "</tr>";
 		}
@@ -45,9 +43,8 @@ if($handle = opendir('geany-plugins'))
 			file_exists($dir . "geany-plugins-" . $version . ".tar.bz2.sig"))
 		{
 			echo "<tr>";
-			echo "	<td>geany-plugins-" . $version . ".tar.bz2</td>";
-			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.bz2\">Download</a></td>";
-			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.bz2.sig\">SIG</a></td>";
+			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.bz2\">geany-plugins-" . $version . ".tar.bz2</a></td>";
+			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.bz2.sig\">SIG</td>";
 			echo "</tr>";
 		}
 
@@ -57,8 +54,7 @@ if($handle = opendir('geany-plugins'))
 			file_exists($dir . "geany-plugins-" . $version . "_setup.exe.sig"))
 		{
 			echo "<tr>";
-			echo "	<td>geany-plugins-" . $version . ".exe</td>";
-			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$version . "_setup.exe\">Download</a></td>";
+			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$version . "_setup.exe\">geany-plugins-" . $version . "_setup.exe</a></td>";
 			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$version . "_setup.exe.sig\">SIG</a></td>";
 			echo "</tr>";
 		}
