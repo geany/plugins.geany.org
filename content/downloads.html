@@ -26,7 +26,7 @@ if($handle = opendir('geany-plugins'))
 		echo "The latest version is " . $version . ", you should take a look on the <a href=\"./geany-plugins/geany-plugins-" . $version . ".NEWS\">release notes</a>.<br />\n";
 		echo "<table>";
 		echo "<tr>";
-		echo "	<th>Name</th>";
+		echo "	<th>Download</th>";
 		echo "	<th>SIG</th>";
 		echo "</tr>";
 
@@ -61,7 +61,7 @@ if($handle = opendir('geany-plugins'))
 
 		echo "</table>";
 
-		echo "<br /><a href=\"./geany-plugins\">Older versions of Geany-Plugins can be downloaded</a>.";
+		echo "<br /><a href=\"./geany-plugins\">Older versions of Geany-Plugins can also be downloaded</a>.";
 	} else {
 		echo "No plugins available at the moment.";
 	}
