@@ -28,7 +28,20 @@ if($handle = opendir('geany-plugins'))
 		echo "<tr>";
 		echo "	<th>Download</th>";
 		echo "	<th>SIG</th>";
-		echo "	<th>MD5</th>";
+		echo "	<th>";
+		if ($_GET['hash'] != "md5")
+		{
+			echo "<a href=\"?site=downloads&hash=md5\">MD5</a> ";
+		} else {
+			echo "MD5 ";
+		}
+		echo "/";
+		if ($_GET['hash'] != "sha1")
+		{
+			echo " <a href=\"?site=downloads&hash=sha1\">SHA1</a> ";
+		} else {
+			echo "SHA1";
+		}
 		echo "</tr>";
 
 		if(file_exists($dir . "geany-plugins-" . $version . ".tar.gz") &&
@@ -37,7 +50,12 @@ if($handle = opendir('geany-plugins'))
 			echo "<tr>";
 			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.gz\">geany-plugins-" . $version . ".tar.gz</a></td>";
 			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.gz.sig\">SIG</a></td>";
-			echo "	<td>" . md5_file($dir . "geany-plugins-" .  $version . ".tar.gz") . "</a>";
+			if ($_GET['hash'] == "sha1")
+			{
+				echo "	<td>" . sha1_file($dir . "geany-plugins-" .  $version . ".tar.gz") . "</a>";
+			} else {
+				echo "  <td>" . md5_file($dir . "geany-plugins-" .  $version . ".tar.gz") . "</a>";
+			}
 			echo "</tr>";
 		}
 
