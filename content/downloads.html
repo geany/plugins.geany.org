@@ -1,6 +1,8 @@
 <h2>Download Geany-Plugins</h2>
 <?php
-	if($handle = opendir('geany-plugins'))
+	$dir = "geany-plugins";
+
+	if($handle = opendir($dir) && is_dir('geany-plugins'))
 	{
 
 		$versions = Array();
@@ -20,30 +22,52 @@
 		closedir($handle);
 
 		$version = max($versions);
+
+		echo "The latest version is " . $version . ", you should take a look on the <a href=\"./geany-plugins/geany-plugins-" . $version . ".NEWS\">release notes</a>.<br />\n";
+		echo "<table>";
+		echo "<tr>";
+		echo "	<th>Name</th>";
+		echo "	<th>Download</th>";
+		echo "	<th>SIG</th>";
+		echo "</tr>";
+		
+		if(file_exists($dir . "/geany-plugins-" . $version . ".tar.gz" &&
+			file_exists($dir . "/geany-plugins-" . $version . ".tar.gz.sig"
+		)
+		{
+			echo "<tr>";
+			echo "	<td>geany-plugins-" . $version . ".tar.gz</td>";
+			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.gz\">Download</a></td>";
+			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.gz.sig\">SIG</a></td>";
+			echo "</tr>";
+		}
+
+		if(file_exists($dir . "/geany-plugins-" . $version . ".tar.bz2" &&
+			file_exists($dir . "/geany-plugins-" . $version . ".tar.bz2.sig"
+		)
+		{
+			echo "<tr>";
+			echo "	<td>geany-plugins-" . $version . ".tar.bz2</td>";
+			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.bz2\">Download</a></td>";
+			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.bz2.sig\">SIG</a></td>";
+			echo "</tr>";
+		}
+
+		if(file_exists($dir . "/geany-plugins-" . $version . ".exe" &&
+			file_exists($dir . "/geany-plugins-" . $version . ".exe.sig"
+		)
+		{
+			echo "<tr>";
+			echo "	<td>geany-plugins-" . $version . ".exe</td>";
+			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$version . ".exe\">Download</a></td>";
+			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$version . ".exe.sig\">SIG</a></td>";
+			echo "</tr>";
+			echo "</table>";
+		}
+		echo "<br /><a href=\"./geany-plugins\">Older versions of Geany-Plugins can be downloaded</a>.";
+	} else {
+		echo "No plugins available at the moment.";
 	}
 
-	echo "The latest version is " . $version . ", you should take a look on the <a href=\"./geany-plugins/geany-plugins-" . $version . ".NEWS\">release notes</a>.<br />\n";
 ?>
-<table>
-	<tr>
-		<th>Name</th>
-		<th>Download</th>
-		<th>SIG</th>
-	</tr>
-	<tr>
-		<td>geany-plugins-<?php echo $version; ?>.tar.gz</td>
-		<td><a href="./geany-plugins/geany-plugins-<?php echo $version; ?>.tar.gz">Download</a></td>
-		<td><a href="./geany-plugins/geany-plugins-<?php echo $version; ?>.tar.gz.sig">SIG</a></td>
-	</tr>
-	<tr>
- 		<td>geany-plugins-<?php echo $version; ?>.tar.bz2</td>
-		<td><a href="./geany-plugins/geany-plugins-<?php echo $version; ?>.tar.bz2">Download</a></td>
-		<td><a href="./geany-plugins/geany-plugins-<?php echo $version; ?>.tar.bz2.sig">SIG</a></td>
-	</tr>
-	<tr>
-		<td>geany-plugins-<?php echo $version; ?>.exe</td>
-		<td><a href="./geany-plugins/geany-plugins-<?php echo $version; ?>.exe">Download</a></td>
-		<td><a href="./geany-plugins/geany-plugins-<?php echo $version; ?>.exe.sig">SIG</a></td>
-	</tr>
-</table>
-<br /><a href="./geany-plugins">Older versions of Geany-Plugins can be downloaded</a>.
+
