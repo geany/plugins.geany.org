@@ -31,7 +31,7 @@
 		echo "	<th>SIG</th>";
 		echo "</tr>";
 		
-		if(file_exists($dir . "/geany-plugins-" . $version . ".tar.gz" &&
+		if(file_exists($dir . "/geany-plugins-" . $version . ".tar.gz") &&
 			file_exists($dir . "/geany-plugins-" . $version . ".tar.gz.sig"))
 		{
 			echo "<tr>";
@@ -41,7 +41,7 @@
 			echo "</tr>";
 		}
 
-		if(file_exists($dir . "/geany-plugins-" . $version . ".tar.bz2" &&
+		if(file_exists($dir . "/geany-plugins-" . $version . ".tar.bz2") &&
 			file_exists($dir . "/geany-plugins-" . $version . ".tar.bz2.sig"))
 		{
 			echo "<tr>";
@@ -51,7 +51,7 @@
 			echo "</tr>";
 		}
 
-		if(file_exists($dir . "/geany-plugins-" . $version . ".exe" &&
+		if(file_exists($dir . "/geany-plugins-" . $version . ".exe") &&
 			file_exists($dir . "/geany-plugins-" . $version . ".exe.sig"))
 		{
 			echo "<tr>";
