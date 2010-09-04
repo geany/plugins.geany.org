@@ -30,7 +30,7 @@ if($handle = opendir('geany-plugins'))
 		echo "	<th>Download</th>";
 		echo "	<th>SIG</th>";
 		echo "</tr>";
-		
+
 		if(file_exists($dir . "geany-plugins-" . $version . ".tar.gz") &&
 			file_exists($dir . "geany-plugins-" . $version . ".tar.gz.sig"))
 		{
@@ -53,18 +53,18 @@ if($handle = opendir('geany-plugins'))
 
 
 
-		if(file_exists($dir . "geany-plugins-" . $version . ".exe") &&
-			file_exists($dir . "geany-plugins-" . $version . ".exe.sig"))
+		if(file_exists($dir . "geany-plugins-" . $version . "_setup.exe") &&
+			file_exists($dir . "geany-plugins-" . $version . "_setup.exe.sig"))
 		{
 			echo "<tr>";
 			echo "	<td>geany-plugins-" . $version . ".exe</td>";
-			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$version . ".exe\">Download</a></td>";
-			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$version . ".exe.sig\">SIG</a></td>";
+			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$version . "_setup.exe\">Download</a></td>";
+			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$version . "_setup.exe.sig\">SIG</a></td>";
 			echo "</tr>";
 		}
-		
+
 		echo "</table>";
- 
+
 		echo "<br /><a href=\"./geany-plugins\">Older versions of Geany-Plugins can be downloaded</a>.";
 	} else {
 		echo "No plugins available at the moment.";
