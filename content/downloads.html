@@ -1,8 +1,8 @@
 <h2>Download Geany-Plugins</h2>
 <?php
-	$dir = "geany-plugins";
+	$dir = "./geany-plugins/";
 
-	if($handle = opendir($dir) && is_dir('geany-plugins'))
+	if($handle = opendir($dir) && is_dir($dir))
 	{
 
 		$versions = Array();
@@ -31,8 +31,8 @@
 		echo "	<th>SIG</th>";
 		echo "</tr>";
 		
-		if(file_exists($dir . "/geany-plugins-" . $version . ".tar.gz") &&
-			file_exists($dir . "/geany-plugins-" . $version . ".tar.gz.sig"))
+		if(file_exists($dir . "geany-plugins-" . $version . ".tar.gz") &&
+			file_exists($dir . "geany-plugins-" . $version . ".tar.gz.sig"))
 		{
 			echo "<tr>";
 			echo "	<td>geany-plugins-" . $version . ".tar.gz</td>";
@@ -41,8 +41,8 @@
 			echo "</tr>";
 		}
 
-		if(file_exists($dir . "/geany-plugins-" . $version . ".tar.bz2") &&
-			file_exists($dir . "/geany-plugins-" . $version . ".tar.bz2.sig"))
+		if(file_exists($dir . "geany-plugins-" . $version . ".tar.bz2") &&
+			file_exists($dir . "geany-plugins-" . $version . ".tar.bz2.sig"))
 		{
 			echo "<tr>";
 			echo "	<td>geany-plugins-" . $version . ".tar.bz2</td>";
@@ -51,8 +51,8 @@
 			echo "</tr>";
 		}
 
-		if(file_exists($dir . "/geany-plugins-" . $version . ".exe") &&
-			file_exists($dir . "/geany-plugins-" . $version . ".exe.sig"))
+		if(file_exists($dir . "geany-plugins-" . $version . ".exe") &&
+			file_exists($dir . "geany-plugins-" . $version . ".exe.sig"))
 		{
 			echo "<tr>";
 			echo "	<td>geany-plugins-" . $version . ".exe</td>";
