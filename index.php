@@ -70,6 +70,11 @@ print '<?xml version="1.0"?>';
 		<ul>
 			<li><a href="index.php?site=downloads">Downloads</a></li>
 			<li><a href="index.php?site=install">Install</a></li>
+		
+			<hr />
+
+			<li><a href="https://sourceforge.net/tracker/?group_id=222729&atid=1056532">Bugtracker</a></li>
+			<li><a href="https://sourceforge.net/tracker/?group_id=222729&atid=1056535">Feature Requests</a></li>
 		</ul>
 
 		<hr />
