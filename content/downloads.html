@@ -65,7 +65,12 @@ if($handle = opendir('geany-plugins'))
 			echo "<tr>";
 			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.bz2\">geany-plugins-" . $version . ".tar.bz2</a></td>";
 			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.bz2.sig\">SIG</td>";
-			echo "  <td>" . md5_file($dir . "geany-plugins-" .  $version . ".tar.bz2") . "</a>";
+			if ($_GET['hash'] == "sha1")
+			{
+				echo "	<td>" . sha1_file($dir . "geany-plugins-" .  $version . ".tar.bz2") . "</a>";
+			} else {
+				echo "  <td>" . md5_file($dir . "geany-plugins-" .  $version . ".tar.bz2") . "</a>";
+			}
 			echo "</tr>";
 		}
 
@@ -77,7 +82,12 @@ if($handle = opendir('geany-plugins'))
 			echo "<tr>";
 			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$version . "_setup.exe\">geany-plugins-" . $version . "_setup.exe</a></td>";
 			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$version . "_setup.exe.sig\">SIG</a></td>";
-			echo "  <td>" . md5_file($dir . "geany-plugins-" .  $version . "_setup.exe.sig") . "</a>";
+			if ($_GET['hash'] == "sha1")
+			{
+				echo "	<td>" . sha1_file($dir . "geany-plugins-" .  $version . "_setup.exe") . "</a>";
+			} else {
+				echo "  <td>" . md5_file($dir . "geany-plugins-" .  $version . "_setup.exe") . "</a>";
+			}
 			echo "</tr>";
 		}
 
