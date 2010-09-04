@@ -2,7 +2,7 @@
 <?php
 	$dir = "./geany-plugins/";
 
-	if($handle = opendir('geany-plugins') && is_dir($dir))
+if($handle = opendir('geany-plugins'))
 	{
 
 		$versions = Array();
@@ -51,6 +51,8 @@
 			echo "</tr>";
 		}
 
+
+
 		if(file_exists($dir . "geany-plugins-" . $version . ".exe") &&
 			file_exists($dir . "geany-plugins-" . $version . ".exe.sig"))
 		{
@@ -59,8 +61,10 @@
 			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$version . ".exe\">Download</a></td>";
 			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$version . ".exe.sig\">SIG</a></td>";
 			echo "</tr>";
-			echo "</table>";
 		}
+		
+		echo "</table>";
+ 
 		echo "<br /><a href=\"./geany-plugins\">Older versions of Geany-Plugins can be downloaded</a>.";
 	} else {
 		echo "No plugins available at the moment.";
