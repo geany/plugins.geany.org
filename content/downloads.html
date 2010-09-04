@@ -2,12 +2,12 @@
 <?php
 	if($handle = opendir('geany-plugins'))
 	{
-		
+
 		$versions = Array();
 
 		while(false !== ($file = readdir($handle)))
 		{
-			if(preg_match("/.tar.gz/", $file))
+			if(preg_match("/.tar.gz$/", $file))
 			{
 
 				$file = substr($file, 14);
@@ -18,10 +18,10 @@
 		}
 
 		closedir($handle);
-		
+
 		$version = max($versions);
 	}
-	
+
 	echo "Download the latest <a href=\"./geany-plugins/geany-plugins-" . $version . ".NEWS\">Geany-Plugins</a> in version " . $version  . ".<br />\n";
 ?>
 <table>
@@ -39,7 +39,7 @@
  		<td>geany-plugins-<?php echo $version; ?>.tar.bz2</td>
 		<td><a href="./geany-plugins/geany-plugins-<?php echo $version; ?>.tar.bz2">Download</a></td>
 		<td><a href="./geany-plugins/geany-plugins-<?php echo $version; ?>.tar.bz2.sig">SIG</a></td>
-	</tr>   
+	</tr>
 	<tr>
 		<td>geany-plugins-<?php echo $version; ?>.exe</td>
 		<td><a href="./geany-plugins/geany-plugins-<?php echo $version; ?>.exe">Download</a></td>
