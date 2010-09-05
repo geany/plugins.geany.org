@@ -49,7 +49,7 @@ if($handle = opendir('geany-plugins'))
 		{
 			echo "<tr>";
 			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.gz\">geany-plugins-" . $version . ".tar.gz</a></td>";
-			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.gz.sig\">SIG</a></td>";
+			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.gz.sig\">GPG Signature</a></td>";
 			if ($_GET['hash'] == "sha1")
 			{
 				echo "	<td><pre>" . sha1_file($dir . "geany-plugins-" .  $version . ".tar.gz") . "</pre></td>";
@@ -64,7 +64,7 @@ if($handle = opendir('geany-plugins'))
 		{
 			echo "<tr>";
 			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.bz2\">geany-plugins-" . $version . ".tar.bz2</a></td>";
-			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.bz2.sig\">SIG</a></td>";
+			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.bz2.sig\">GPG Signature</a></td>";
 			if ($_GET['hash'] == "sha1")
 			{
 				echo "	<td><pre>" . sha1_file($dir . "geany-plugins-" .  $version . ".tar.bz2") . "</pre></td>";
@@ -81,7 +81,7 @@ if($handle = opendir('geany-plugins'))
 		{
 			echo "<tr>";
 			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$version . "_setup.exe\">geany-plugins-" . $version . "_setup.exe</a></td>";
-			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$version . "_setup.exe.sig\">SIG</a></td>";
+			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$version . "_setup.exe.sig\">GPG Signature</a></td>";
 			if ($_GET['hash'] == "sha1")
 			{
 				echo "	<td><pre>" . sha1_file($dir . "geany-plugins-" .  $version . "_setup.exe") . "</pre></td>";
