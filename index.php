@@ -69,9 +69,9 @@ print '<?xml version="1.0"?>';
 
 		<ul>
 			<li><a href="index.php?site=downloads&hash=md5">Downloads</a></li>
-			<li><a href="index.php?site=install">Install</a></li>
-		
-		</ul>	
+			<li><a href="index.php?site=install">Installation</a></li>
+
+		</ul>
 
 		<hr />
 
