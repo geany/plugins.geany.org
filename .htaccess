@@ -1,0 +1,14 @@
+RewriteEngine on
+RewriteBase /
+
+RewriteCond %{REQUEST_URI} !^/images
+RewriteCond %{REQUEST_URI} !^/stylesheets
+RewriteCond %{REQUEST_URI} !^/index.php
+RewriteCond %{REQUEST_URI} !^/geany-plugins
+RewriteCond %{REQUEST_URI} !^/addons
+RewriteCond %{REQUEST_URI} !^/geanydoc
+RewriteCond %{REQUEST_URI} !^/geanylua
+RewriteCond %{REQUEST_URI} !^/geanyprj
+RewriteCond %{REQUEST_URI} !^/geanyvc
+RewriteCond %{REQUEST_URI} !^/spellcheck
+RewriteRule (.*) index.php?site=$1 [L]
