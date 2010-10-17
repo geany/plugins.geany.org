@@ -1,3 +1,5 @@
+Options +Indexes
+
 RewriteEngine on
 RewriteBase /
 
@@ -5,11 +7,20 @@ RewriteCond %{REQUEST_URI} !^/images
 RewriteCond %{REQUEST_URI} !^/stylesheets
 RewriteCond %{REQUEST_URI} !^/index.php
 RewriteCond %{REQUEST_URI} !^/geany-plugins
-RewriteCond %{REQUEST_URI} !^/addons
 RewriteCond %{REQUEST_URI} !^/geanydoc
 RewriteCond %{REQUEST_URI} !^/geanylua
 RewriteCond %{REQUEST_URI} !^/geanyprj
 RewriteCond %{REQUEST_URI} !^/geanyvc
-RewriteCond %{REQUEST_URI} !^/spellcheck
+RewriteCond %{REQUEST_URI} !site
 RewriteCond %{REQUEST_URI} !^/$
-RewriteRule (.*) index.php?site=$1 [L]
+RewriteCond %{REQUEST_URI} !html|css|png|php$
+RewriteRule ^(.+) index.php?site=$1 [L]
+
+RewriteCond %{REQUEST_URI} !site
+RewriteRule ^(.+).html index.php?site=$1 [L]
+
+RewriteCond %{REQUEST_URI} !html|css|png|php$
+RewriteRule ^site\/(.+) index.php?site=$1 [L]
+RewriteRule ^site\/(.+).html index.php?site=$1 [L]
+RewriteRule ^site\/images(.+) /images$1 [L]
+RewriteRule ^site\/stylesheets(.+) /stylesheets$1 [L]
