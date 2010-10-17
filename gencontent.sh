@@ -119,7 +119,7 @@ do
 		if [ $? -eq 0 ]; then # ... if yes, ...
 			# ... add it to the navigation ...
 			title=`echo ${i} | sed 's/\([a-z]\)\([a-zA-Z0-9]*\)/\u\1\2/g'`
-			echo "<li><a href=\"index.php?site=$i\">${title}</a></li>" >> $CONTENTDIR"geany-plugins-listing.html"
+			echo "<li><a href=\"$i.html\">${title}</a></li>" >> $CONTENTDIR"geany-plugins-listing.html"
 			continue # ... and jump to the next one
 		fi;
 
