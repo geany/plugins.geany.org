@@ -60,16 +60,16 @@ print '<?xml version="1.0"?>';
 
 		<h1>Other Third-Party plugins</h1>
 		<ul>
-			<li><a href="index.php?site=externdbg">externdbg</a></li>
-			<li><a href="index.php?site=geanyembrace">geanyembrace</a></li>
-			<li><a href="index.php?site=geany-mini-script">Geany Mini Script</a></li>
+			<li><a href="externdbg.html">externdbg</a></li>
+			<li><a href="geanyembrace.html">geanyembrace</a></li>
+			<li><a href="geany-mini-script.html">Geany Mini Script</a></li>
 		</ul>
 
 		<hr />
 
 		<ul>
-			<li><a href="index.php?site=downloads&amp;hash=md5">Downloads</a></li>
-			<li><a href="index.php?site=install">Installation</a></li>
+			<li><a href="downloads.html">Downloads</a></li>
+			<li><a href="install.html">Installation</a></li>
 
 		</ul>
 
@@ -84,8 +84,8 @@ print '<?xml version="1.0"?>';
 		<hr />
 
 		<ul>
-			<li><a href="index.php?site=licensing">Licensing</a></li>
-			<li><a href="index.php?site=about">About</a></li>
+			<li><a href="licensing.html">Licensing</a></li>
+			<li><a href="about.html">About</a></li>
 		</ul>
 
 		<hr />
@@ -97,7 +97,7 @@ print '<?xml version="1.0"?>';
 		<hr />
 
 		<ul>
-			<li><a href="index.php?site=README">List or update a plugin</a></li>
+			<li><a href="README.html">List or update a plugin</a></li>
 		</ul>
 	</div>
 
