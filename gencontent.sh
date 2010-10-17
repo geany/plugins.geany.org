@@ -132,7 +132,7 @@ do
 			# TODO: newer versions of rst2html may face problems with the configuration files encoding
 			$RST2HTML -s --config=$CONTENTDIR"rst2html_config.conf" $SOURCESDIR$i/README | tee .README.html >> $LOGFILE 2>&1
 			title=`echo ${i} | sed 's/\([a-z]\)\([a-zA-Z0-9]*\)/\u\1\2/g'`
-			echo "<li><a href=\"index.php?site=$i\">${title}</a></li>" >> $CONTENTDIR"geany-plugins-listing.html"
+			echo "<li><a href=\"$i.html\">${title}</a></li>" >> $CONTENTDIR"geany-plugins-listing.html"
 
 			if [ $? -ne 0 ]; then
 				echo -e "$RST2HTML exited with $?.\n\n"
