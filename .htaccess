@@ -13,13 +13,13 @@ RewriteCond %{REQUEST_URI} !^/geanyprj
 RewriteCond %{REQUEST_URI} !^/geanyvc
 RewriteCond %{REQUEST_URI} !site
 RewriteCond %{REQUEST_URI} !^/$
-RewriteCond %{REQUEST_URI} !html|css|png|php$
+RewriteCond %{REQUEST_URI} !html|css|png|php|tar|gz|bz2$
 RewriteRule ^(.+) index.php?site=$1 [L]
 
 RewriteCond %{REQUEST_URI} !site
 RewriteRule ^(.+).html index.php?site=$1 [L]
 
-RewriteCond %{REQUEST_URI} !html|css|png|php$
+RewriteCond %{REQUEST_URI} !html|css|png|php|tar|gz|bz2$
 RewriteRule ^site\/(.+) index.php?site=$1 [L]
 RewriteRule ^site\/(.+).html index.php?site=$1 [L]
 RewriteRule ^site\/images(.+) /images$1 [L]
