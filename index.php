@@ -101,15 +101,20 @@ print '<?xml version="1.0"?>';
 		</ul>
 	</div>
 
-	<div id="content">
+		<div id="content">
 		<?php include_once CONTENTFILE; ?>
 	</div>
 
 	<div id="footer">
-		&copy; Dominic Hopf &amp; Michael Spahn <br />
+		<p><a href="http://sourceforge.net/projects/geany-plugins"><img src=
+		"http://sflogo.sourceforge.net/sflogo.php?group_id=222729&amp;type=16"
+		width="150" height="40" alt="Get geany-plugins at SourceForge.net.
+		Fast, secure and Free Open Source software downloads" /></a></p>
+
+		<p>&copy; Dominic Hopf &amp; Michael Spahn <br />
 		Contact <a href="http://dominichopf.de/">Dominic Hopf</a> or the
 		<a href="http://www.geany.org/Support/MailingList">Geany Team</a>
-		for questions.
+		for questions.</p>
 	</div>
 </body>
 </html>
