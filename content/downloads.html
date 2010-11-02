@@ -1,6 +1,6 @@
 <h2>Download Geany-Plugins</h2>
 <?php
-	$dir = "./geany-plugins/";
+$dir = "./geany-plugins/";
 
 if($handle = opendir('geany-plugins'))
 	{
@@ -31,14 +31,14 @@ if($handle = opendir('geany-plugins'))
 		echo "	<th>";
 		if ($_GET['hash'] != "md5")
 		{
-			echo "<a href=\"?site=downloads&hash=md5\">MD5</a> ";
+			echo "<a href=\"?site=downloads&amp;hash=md5\">MD5</a> ";
 		} else {
 			echo "MD5 ";
 		}
 		echo "/";
 		if ($_GET['hash'] != "sha1")
 		{
-			echo " <a href=\"?site=downloads&hash=sha1\">SHA1</a> ";
+			echo " <a href=\"?site=downloads&amp;hash=sha1\">SHA1</a> ";
 		} else {
 			echo " SHA1";
 		}
