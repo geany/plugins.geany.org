@@ -100,3 +100,29 @@ if($handle = opendir('geany-plugins'))
 
 ?>
 
+<h2>verifying signatures</h2>
+<p>The tarballs are signed with a GPG key to make sure the source code
+wasn't compromised somewhere on the net. You can verify you have the correct
+tarballs by checking if the GPG signature is correct. To do this, follow
+these instructions:</p>
+
+<ul>
+	<li>Download the public key from <a href="http://download.geany.org/ntrel-pubkey.txt">
+		http://download.geany.org/ntrel-pubkey.txt</a></li>
+	<li>Import the key via <code>gpg --import &lt; ntrel-pubkey.txt</code></li>
+	<li>Verify the downloaded archive either with
+		<code>gpg --verify geany-0.20.tar.bz2.sig geany-0.20.tar.bz2</code> or
+		<code>gpg --verify geany-0.20.tar.gz.sig geany-0.20.tar.gz</code>
+	</li>
+</ul>
+
+<p>The command's output should state something like "Good Signature" and
+should return exit code 0. If you get another exit code it's likely,
+something went wrong.</p>
+
+<p>Another complete example:</p>
+<code>
+wget http://download.geany.org/ntrel-pubkey.txt<br />
+gpg --import &lt; ntrel-pubkey.txt<br />
+gpg --verify geany-0.20.tar.bz2.sig geany-0.20.tar.bz2
+</code>
