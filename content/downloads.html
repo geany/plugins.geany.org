@@ -107,9 +107,8 @@ tarballs by checking if the GPG signature is correct. To do this, follow
 these instructions:</p>
 
 <ul>
-	<li>Download the public key from <a href="http://download.geany.org/ntrel-pubkey.txt">
-		http://download.geany.org/ntrel-pubkey.txt</a></li>
-	<li>Import the key via <code>gpg --import &lt; ntrel-pubkey.txt</code></li>
+	<li>Download the public key from <a href="http://download.geany.org/hyperair-pubkey.txt">http://download.geany.org/hyperair-pubkey.txt</a></li>
+	<li>Import the key via <code>gpg --import &lt; hyperair-pubkey.txt</code></li>
 	<li>Verify the downloaded archive either with
 		<code>gpg --verify geany-plugins-0.20.tar.bz2.sig geany-plugins-0.20.tar.bz2</code> or
 		<code>gpg --verify geany-plugins-0.20.tar.gz.sig geany-plugins-0.20.tar.gz</code>
@@ -122,7 +121,7 @@ something went wrong.</p>
 
 <p>Another complete example:</p>
 <code>
-wget http://download.geany.org/ntrel-pubkey.txt<br />
-gpg --import &lt; ntrel-pubkey.txt<br />
+wget http://download.geany.org/hyperair-pubkey.txt<br />
+gpg --import &lt; hyperair-pubkey.txt<br />
 gpg --verify geany-plugins-0.20.tar.bz2.sig geany-plugins-0.20.tar.bz2
 </code>
