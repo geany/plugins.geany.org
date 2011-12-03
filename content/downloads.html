@@ -9,7 +9,7 @@ if($handle = opendir('geany-plugins'))
 
 		while(false !== ($file = readdir($handle)))
 		{
-			if(preg_match("/.tar.gz$/", $file))
+			if( preg_match("/.tar.gz$/", $file) )
 			{
 
 				$file = substr($file, 14);
@@ -17,13 +17,24 @@ if($handle = opendir('geany-plugins'))
 				$versions[] = $file;
 
 			}
+
+			if( preg_match("/.exe$/", $file) )
+			{
+
+				$file = substr($file, 14);
+				$file = substr($file, 0, -10);
+				$wversions[] = $file;
+
+			}
 		}
 
 		closedir($handle);
 
 		$version = max($versions);
+		$wversion = max($versions);
 
-		echo "The latest version is " . $version . ", you should take a look on the <a href=\"./geany-plugins/geany-plugins-" . $version . ".NEWS\">release notes</a>.<br />\n";
+		echo "The latest version for Linux/Unix is " . $version . ", you should take a look on the <a href=\"./geany-plugins/geany-plugins-" . $version . ".NEWS\">release notes</a>.<br />\n";
+		echo "The latest version for Windows is " . $wversion . ", <a href=\"./geany-plugins/geany-plugins-" . $wversion . ".NEWS\">release notes</a>.<br />\n";
 		echo "<table>";
 		echo "<tr>";
 		echo "	<th>Download</th>";
@@ -74,19 +85,17 @@ if($handle = opendir('geany-plugins'))
 			echo "</tr>";
 		}
 
-
-
-		if(file_exists($dir . "geany-plugins-" . $version . "_setup.exe") &&
-			file_exists($dir . "geany-plugins-" . $version . "_setup.exe.sig"))
+		if(file_exists($dir . "geany-plugins-" . $wversion . "_setup.exe") &&
+			file_exists($dir . "geany-plugins-" . $wversion . "_setup.exe.sig"))
 		{
 			echo "<tr>";
-			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$version . "_setup.exe\">geany-plugins-" . $version . "_setup.exe</a></td>";
-			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$version . "_setup.exe.sig\">GPG Signature</a></td>";
+			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$wversion . "_setup.exe\">geany-plugins-" . $wversion . "_setup.exe</a></td>";
+			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$wversion . "_setup.exe.sig\">GPG Signature</a></td>";
 			if ($_GET['hash'] == "sha1")
 			{
-				echo "	<td><pre>" . sha1_file($dir . "geany-plugins-" .  $version . "_setup.exe") . "</pre></td>";
+				echo "	<td><pre>" . sha1_file($dir . "geany-plugins-" .  $wversion . "_setup.exe") . "</pre></td>";
 			} else {
-				echo "  <td><pre>" . md5_file($dir . "geany-plugins-" .  $version . "_setup.exe") . "</pre></td>";
+				echo "  <td><pre>" . md5_file($dir . "geany-plugins-" .  $wversion . "_setup.exe") . "</pre></td>";
 			}
 			echo "</tr>";
 		}
