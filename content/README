@@ -11,6 +11,7 @@ navigation and so on.
 
 Note
 ----
+
 If your plugin already is part of the Geany Plugins project, you should find
 your plugin listed here. There is a cronjob running every night, which
 updates the plugins.geany.org website with latest information from the
@@ -23,8 +24,8 @@ website, make sure you gave the cronjob a chance to find your README and
 wait a night before contacting Dominic to have a deeper look on the issue.
 
 
-1. Way
-------
+1st Way
+-------
 
 * create a file {your plugin name}.html
 * edit the file manually, get inspired by the plugin sites already existing
@@ -34,8 +35,8 @@ wait a night before contacting Dominic to have a deeper look on the issue.
   your file. He will do the rest for you.
 
 
-2. Way
-------
+2nd Way
+-------
 
 This one will only work, if you write your README file in restructuredText
 as some other plugin authors do. You will need to use two tools: rst2html
@@ -45,8 +46,9 @@ them. The result should be an almost perfect HTML file which can be
 included into the plugins.geany.org website. Do this steps to generate the
 file:
 
-	rst2html --config=rst2html_config.conf README > {your plugin name}.html
+    rst2html --config=rst2html_config.conf README > {your plugin name}.html
     tidy -config tidy.conf {your plugin name}.html
+
 
 While {your plugin name} is the actual UNIX name (lowercase!) of your plugin.
 Note: There is no need for HTML headers and body and so on. Those will be
@@ -64,6 +66,6 @@ Contact
 The website plugins.geany.org is currently maintained by `Dominic Hopf
 <http://dominichopf.de>`_. His mail address is dmaphy@googlemail.com. If
 you have any questions concerning this site, please consider to contact him
-first of all. If it may takes too long for an answer, feel free to kick his
+first of all. If it takes too long for an answer, feel free to kick his
 butt at the `#geany <irc://chat.freenode.net/geany>`_ IRC channel on
 chat.freenode.net.
