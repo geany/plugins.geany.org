@@ -133,7 +133,7 @@ do
 		if [ -s $SOURCESDIR$i/README  ]; then
 			# TODO: there is still output from rst2html to the shell, that ideally should'nt be
 			# TODO: newer versions of rst2html may face problems with the configuration files encoding
-			$RST2HTML -s --config=$CONTENTDIR"rst2html_config.conf" $SOURCESDIR$i/README | tee .README.html >> $LOGFILE 2>&1
+			$RST2HTML -s --config=$CONTENTDIR"rst2html_config.conf" $SOURCESDIR$i/README > .README.html 2> $LOGFILE
 			title=`echo ${i} | sed 's/\([a-z]\)\([a-zA-Z0-9]*\)/\u\1\2/g'`
 			echo "<li><a href=\"$i.html\">${title}</a></li>" >> $CONTENTDIR"geany-plugins-listing.html"
 
@@ -153,8 +153,7 @@ do
 		$TIDY -config $CONTENTDIR"tidy.conf" .README.html >> $LOGFILE 2>&1
 		case "$?" in
 			1)
-				echo -e "$TIDY exited with 1. There were warnings, but this is okay."
-				echo -e "You maybe should have another look at $CONTENTDIR$i.html yourself.'\n"
+				echo -e "$TIDY exited with 1, There were warnings."
 				;;
 			2)
 				echo "$TIDY exited with 2. There were errors.\n\n"
@@ -164,6 +163,7 @@ do
 				echo -e "$TIDY exited with $?. Everything should be fine.\n"
 				;;
 		esac
+		echo -e "Result:\t$CONTENTDIR$i.html\nLog:\t$LOGFILE\n"
 		echo -e "\n\n" >> $LOGFILE
 
 		# since tidy just outputs spaces, not tabs, we'll replace those spaces
