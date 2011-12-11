@@ -7,9 +7,9 @@
 # Generates the *.html files in the content/ directory on the
 # plugins.geany.org website
 #
-# (C) Copyright 2010 by Dominic Hopf <dh@dmaphy.de>
-# Version: 1.0.0
-# Last Change: 2010-07-17
+# (C) Copyright 2010 by Dominic Hopf <dmaphy@googlemail.com>
+# Version: 1.1.0
+# Last Change: 2011-12-11
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -25,14 +25,14 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # ChangeLog:
-# 2010-01-21 Dominic Hopf <dh@dmaphy>
+# 2010-01-21 Dominic Hopf <dmaphy@googlemail.com>
 # * remove unneccessary code which is trying to patch files but not working
 #   correctly
 #
-# 2010-01-21 Dominic Hopf <dh@dmaphy>
+# 2010-01-21 Dominic Hopf <dmaphy@googlemail.com>
 # * add a sanity check, if the README file for a plugin exists
 #
-# 2010-01-09  Dominic Hopf  <dh@dmaphy.de>
+# 2010-01-09  Dominic Hopf  <dmaphy@googlemail.com>
 # * write first version of this file with basic functionality
 
 # ATTENTION: If you change any path below, don't forget the trailing slashes,
