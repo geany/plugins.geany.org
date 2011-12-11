@@ -43,11 +43,13 @@ print '<?xml version="1.0"?>';
 </head>
 <body>
 	<a href="https://github.com/geany/geany-plugins">
-		<img style="position: absolute; top: 0; left: 0; border: 0;" src="./images/ForkMe_Blk.png" alt="Fork me on GitHub"></a>
+		<img style="position: absolute; top: 0; left: 0; border: 0;"
+			src="./images/ForkMe_Blk.png" alt="Fork me on GitHub"></a>
 
 	<div id="header">
 		<a href="./">
-		<img src="./images/geany.png" alt="Geany Logo" style="width: 48px; height: 48px; float: left; margin-right: 5%;" /></a>
+		<img src="./images/geany.png" alt="Geany Logo"
+			style="width: 48px; height: 48px; float: left; margin-left: 2%; margin-right: 5%;" /></a>
 		<h1>Plugins for Geany</h1>
 	</div>
 
