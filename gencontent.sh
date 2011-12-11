@@ -25,6 +25,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # ChangeLog:
+# 2011-12-11 Dominic Hopf <dmaphy@googlemail.com>
+# * use the new Git repository
+#
 # 2010-01-21 Dominic Hopf <dmaphy@googlemail.com>
 # * remove unneccessary code which is trying to patch files but not working
 #   correctly
@@ -40,9 +43,9 @@
 # missing!
 
 # SOURCESDIR is the directory, where the README files will be found
-SOURCESDIR=$HOME"/projects/geany-plugins/trunk/geany-plugins/"
+SOURCESDIR=$HOME"/projects/geany/geany-plugins/geany-plugins/"
 
-# CONTENTDIR is the directory, where the generated HTML files will be pushed
+# CONTENTDIR is the directory, where the generated HTML files will be put
 CONTENTDIR="./content/"
 
 # LOGDIR is the directory where to put any logfiles and information about the
@@ -93,7 +96,7 @@ if [ ! -d $SOURCESDIR ]; then
 	echo -e "Directory containing sources $SOURCESDIR could not be found!\n"
 	exit 1
 else
-	svn update $SOURCESDIR
+	cd $SOURCESDIR && git pull && cd - > /dev/null
 fi
 
 
