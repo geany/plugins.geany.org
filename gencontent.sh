@@ -96,6 +96,7 @@ if [ ! -d $SOURCESDIR ]; then
 	echo -e "Directory containing sources $SOURCESDIR could not be found!\n"
 	exit 1
 else
+	echo "Updating $SOURCESDIR via 'git pull'..."
 	cd $SOURCESDIR && git pull && cd - > /dev/null
 fi
 
