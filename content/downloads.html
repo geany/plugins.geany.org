@@ -3,109 +3,121 @@
 $dir = "./geany-plugins/";
 
 if($handle = opendir('geany-plugins'))
+{
+	$versions = Array();
+
+	while(false !== ($file = readdir($handle)))
 	{
-
-		$versions = Array();
-
-		while(false !== ($file = readdir($handle)))
+		if( preg_match("/.tar.gz$/", $file) )
 		{
-			if( preg_match("/.tar.gz$/", $file) )
-			{
-
-				$file = substr($file, 14);
-				$file = substr($file, 0, -7);
-				$versions[] = $file;
-
-			}
-
-			if( preg_match("/.exe$/", $file) )
-			{
-
-				$file = substr($file, 14);
-				$file = substr($file, 0, -10);
-				$wversions[] = $file;
-
-			}
+			$file = substr($file, 14);
+			$file = substr($file, 0, -7);
+			$versions[] = $file;
 		}
 
-		closedir($handle);
+		if( preg_match("/.exe$/", $file) )
+		{
+			$file = substr($file, 14);
+			$file = substr($file, 0, -10);
+			$wversions[] = $file;
+		}
+	}
 
-		$version = max($versions);
-		$wversion = max($wversions);
+	closedir($handle);
 
-		echo "The latest version for Linux/Unix is " . $version . ", you should take a look at the <a href=\"./geany-plugins/geany-plugins-" . $version . ".NEWS\">release notes</a>.<br />\n";
-		echo "The latest version for Windows is " . $wversion . ", <a href=\"./geany-plugins/geany-plugins-" . $wversion . ".NEWS\">release notes</a>.<br />\n";
-		echo "<table>";
+	$version = max($versions);
+	$wversion = max($wversions);
+
+	echo "The latest version for Linux/Unix is " . $version . ", you should take a look at the <a href=\"./geany-plugins/geany-plugins-" . $version . ".NEWS\">release notes</a>.<br />\n";
+	echo "The latest version for Windows is " . $wversion . ", <a href=\"./geany-plugins/geany-plugins-" . $wversion . ".NEWS\">release notes</a>.<br />\n";
+	echo "<table>";
+	echo "<tr>";
+	echo "	<th>Download</th>";
+	echo "	<th>SIG</th>";
+	echo "	<th>";
+
+	if ($_GET['hash'] != "md5")
+	{
+		echo "<a href=\"?site=downloads&amp;hash=md5\">MD5</a> ";
+	}
+
+	else
+	{
+		echo "MD5 ";
+	}
+
+
+	echo "/";
+
+	if ($_GET['hash'] != "sha1")
+	{
+		echo " <a href=\"?site=downloads&amp;hash=sha1\">SHA1</a> ";
+	}
+
+	else
+	{
+		echo " SHA1";
+	}
+
+
+	echo "</tr>";
+
+	if(file_exists($dir . "geany-plugins-" . $version . ".tar.gz") &&
+		file_exists($dir . "geany-plugins-" . $version . ".tar.gz.sig"))
+	{
 		echo "<tr>";
-		echo "	<th>Download</th>";
-		echo "	<th>SIG</th>";
-		echo "	<th>";
-		if ($_GET['hash'] != "md5")
+		echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.gz\">geany-plugins-" . $version . ".tar.gz</a></td>";
+		echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.gz.sig\">GPG Signature</a></td>";
+		if ($_GET['hash'] == "sha1")
 		{
-			echo "<a href=\"?site=downloads&amp;hash=md5\">MD5</a> ";
+			echo "	<td><pre>" . sha1_file($dir . "geany-plugins-" .  $version . ".tar.gz") . "</pre></td>";
 		} else {
-			echo "MD5 ";
-		}
-		echo "/";
-		if ($_GET['hash'] != "sha1")
-		{
-			echo " <a href=\"?site=downloads&amp;hash=sha1\">SHA1</a> ";
-		} else {
-			echo " SHA1";
+			echo "  <td><pre>" . md5_file($dir . "geany-plugins-" .  $version . ".tar.gz") . "</pre></td>";
 		}
 		echo "</tr>";
-
-		if(file_exists($dir . "geany-plugins-" . $version . ".tar.gz") &&
-			file_exists($dir . "geany-plugins-" . $version . ".tar.gz.sig"))
-		{
-			echo "<tr>";
-			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.gz\">geany-plugins-" . $version . ".tar.gz</a></td>";
-			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.gz.sig\">GPG Signature</a></td>";
-			if ($_GET['hash'] == "sha1")
-			{
-				echo "	<td><pre>" . sha1_file($dir . "geany-plugins-" .  $version . ".tar.gz") . "</pre></td>";
-			} else {
-				echo "  <td><pre>" . md5_file($dir . "geany-plugins-" .  $version . ".tar.gz") . "</pre></td>";
-			}
-			echo "</tr>";
-		}
-
-		if(file_exists($dir . "geany-plugins-" . $version . ".tar.bz2") &&
-			file_exists($dir . "geany-plugins-" . $version . ".tar.bz2.sig"))
-		{
-			echo "<tr>";
-			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.bz2\">geany-plugins-" . $version . ".tar.bz2</a></td>";
-			echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.bz2.sig\">GPG Signature</a></td>";
-			if ($_GET['hash'] == "sha1")
-			{
-				echo "	<td><pre>" . sha1_file($dir . "geany-plugins-" .  $version . ".tar.bz2") . "</pre></td>";
-			} else {
-				echo "  <td><pre>" . md5_file($dir . "geany-plugins-" .  $version . ".tar.bz2") . "</pre></td>";
-			}
-			echo "</tr>";
-		}
-
-		if(file_exists($dir . "geany-plugins-" . $wversion . "_setup.exe") &&
-			file_exists($dir . "geany-plugins-" . $wversion . "_setup.exe.sig"))
-		{
-			echo "<tr>";
-			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$wversion . "_setup.exe\">geany-plugins-" . $wversion . "_setup.exe</a></td>";
-			echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$wversion . "_setup.exe.sig\">GPG Signature</a></td>";
-			if ($_GET['hash'] == "sha1")
-			{
-				echo "	<td><pre>" . sha1_file($dir . "geany-plugins-" .  $wversion . "_setup.exe") . "</pre></td>";
-			} else {
-				echo "  <td><pre>" . md5_file($dir . "geany-plugins-" .  $wversion . "_setup.exe") . "</pre></td>";
-			}
-			echo "</tr>";
-		}
-
-		echo "</table>";
-
-		echo "<br /><a href=\"./geany-plugins\">Older versions of Geany-Plugins can also be downloaded</a>.";
-	} else {
-		echo "No plugins available at the moment.";
 	}
+
+
+	if(file_exists($dir . "geany-plugins-" . $version . ".tar.bz2") &&
+		file_exists($dir . "geany-plugins-" . $version . ".tar.bz2.sig"))
+	{
+		echo "<tr>";
+		echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.bz2\">geany-plugins-" . $version . ".tar.bz2</a></td>";
+		echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.bz2.sig\">GPG Signature</a></td>";
+		if ($_GET['hash'] == "sha1")
+		{
+			echo "	<td><pre>" . sha1_file($dir . "geany-plugins-" .  $version . ".tar.bz2") . "</pre></td>";
+		} else {
+			echo "  <td><pre>" . md5_file($dir . "geany-plugins-" .  $version . ".tar.bz2") . "</pre></td>";
+		}
+		echo "</tr>";
+	}
+
+
+	if(file_exists($dir . "geany-plugins-" . $wversion . "_setup.exe") &&
+		file_exists($dir . "geany-plugins-" . $wversion . "_setup.exe.sig"))
+	{
+		echo "<tr>";
+		echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$wversion . "_setup.exe\">geany-plugins-" . $wversion . "_setup.exe</a></td>";
+		echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$wversion . "_setup.exe.sig\">GPG Signature</a></td>";
+		if ($_GET['hash'] == "sha1")
+		{
+			echo "	<td><pre>" . sha1_file($dir . "geany-plugins-" .  $wversion . "_setup.exe") . "</pre></td>";
+		} else {
+			echo "  <td><pre>" . md5_file($dir . "geany-plugins-" .  $wversion . "_setup.exe") . "</pre></td>";
+		}
+		echo "</tr>";
+	}
+
+	echo "</table>";
+
+	echo "<br /><a href=\"./geany-plugins\">Older versions of Geany-Plugins can also be downloaded</a>.";
+}
+
+else
+{
+	echo "No plugins available at the moment.";
+}
 
 ?>
 
