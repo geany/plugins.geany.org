@@ -8,8 +8,8 @@
 # plugins.geany.org website
 #
 # (C) Copyright 2010 by Dominic Hopf <dmaphy@googlemail.com>
-# Version: 1.1.0
-# Last Change: 2011-12-11
+# Version: 1.1.1
+# Last Change: 2011-12-17
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -25,6 +25,10 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # ChangeLog:
+# 2011-12-17 Dominic Hopf <dmaphy@googlemail.com>
+# * generate .html files from READMEs for the latest Geany-Plugins version
+#   instead of git master
+#
 # 2011-12-11 Dominic Hopf <dmaphy@googlemail.com>
 # * use the new Git repository
 #
@@ -96,8 +100,30 @@ if [ ! -d $SOURCESDIR ]; then
 	echo -e "Directory containing sources $SOURCESDIR could not be found!\n"
 	exit 1
 else
-	echo "Updating $SOURCESDIR via 'git pull'..."
-	cd $SOURCESDIR && git pull && cd - > /dev/null
+	cd $SOURCESDIR
+	VERSION=`git tag -l | tail -n1`
+	echo "Found latest Geany-Plugins version: $VERSION."
+
+	git branch | grep $VERSION
+
+	if [ $? -ne 0 ]; then
+		echo "A local branch does not exist for $VERSION."
+		echo "Checking if $VERSION exists remote.."
+		UPSTREAM=`git branch -r | grep $VERSION`
+
+		if [ $? -eq 0 ]; then
+			echo "Remote branch $UPSTREAM found. Checking out..."
+			git checkout -b $VERSION $UPSTREAM
+		else
+			echo "Could not find a remote branch. Checking out the tag $VERSION..."
+			git checkout $VERSION > /dev/null
+		fi
+	else
+		echo "A local branch exists for $VERSION. Updating..."
+		git checkout $VERSION && git pull
+	fi
+
+	cd - > /dev/null
 fi
 
 
