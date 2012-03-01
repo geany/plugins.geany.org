@@ -145,3 +145,24 @@ wget http://download.geany.org/hyperair-pubkey.txt<br />
 gpg --import &lt; hyperair-pubkey.txt<br />
 gpg --verify geany-plugins-0.20.tar.bz2.sig geany-plugins-0.20.tar.bz2
 </code>
+
+<h2>Download directly from version control</h2>
+<p>You can pull the sources for Geany-Plugins directly from version control
+as well. To do this, just clone the <a href=
+"https://github.com/geany/geany-plugins">Git repository</a> like this:</p>
+
+<code>
+git clone git://github.com/geany/geany-plugins.git geany-plugins
+</code>
+
+<p>You can build the plugins from those sources then using Waf:</p>
+<code>
+./waf configure<br />
+./waf build -p -k
+</code>
+
+<p>You can either copy the resulting .so files to ~/.config/geany/plugins/ or
+install them to /usr/share/geany/ with running following command as root:</p>
+<code>
+./waf install
+</code>
