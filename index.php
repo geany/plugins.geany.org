@@ -63,15 +63,6 @@ print '<?xml version="1.0"?>';
 
 		<hr />
 
-		<h1>Other Third-Party plugins</h1>
-		<ul>
-			<li><a href="externdbg.html">externdbg</a></li>
-			<li><a href="geanyembrace.html">geanyembrace</a></li>
-			<li><a href="geany-mini-script.html">Geany Mini Script</a></li>
-		</ul>
-
-		<hr />
-
 		<ul>
 			<li><a href="downloads.html">Downloads</a></li>
 			<li><a href="install.html">Installation</a></li>
