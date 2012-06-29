@@ -97,34 +97,34 @@ in_array()
 
 
 if [ ! -d $SOURCESDIR ]; then
-	echo -e "Directory containing sources $SOURCESDIR could not be found!\n"
-	exit 1
-else
-	cd $SOURCESDIR
-	VERSION=`git tag -l | tail -n1`
-	echo "Found latest Geany-Plugins version: $VERSION."
-
-	git branch | grep $VERSION
-
-	if [ $? -ne 0 ]; then
-		echo "A local branch does not exist for $VERSION."
-		echo "Checking if $VERSION exists remote.."
-		UPSTREAM=`git branch -r | grep $VERSION`
-
-		if [ $? -eq 0 ]; then
-			echo "Remote branch $UPSTREAM found. Checking out..."
-			git checkout -b $VERSION $UPSTREAM
-		else
-			echo "Could not find a remote branch. Checking out the tag $VERSION..."
-			git checkout $VERSION > /dev/null
-		fi
-	else
-		echo "A local branch exists for $VERSION. Updating..."
-		git checkout $VERSION && git pull
-	fi
-
-	cd - > /dev/null
+	echo -e "Directory containing sources $SOURCESDIR could not be found. Trying to clone from git...\n"
+	git clone git://github.com/geany/geany-plugins.git $SOURCESDIR
 fi
+
+cd $SOURCESDIR
+VERSION=`git tag -l | tail -n1`
+echo "Found latest Geany-Plugins version: $VERSION."
+
+git branch | grep $VERSION
+
+if [ $? -ne 0 ]; then
+	echo "A local branch does not exist for $VERSION."
+	echo "Checking if $VERSION exists remote.."
+	UPSTREAM=`git branch -r | grep $VERSION`
+
+	if [ $? -eq 0 ]; then
+		echo "Remote branch $UPSTREAM found. Checking out..."
+		git checkout -b $VERSION $UPSTREAM
+	else
+		echo "Could not find a remote branch. Checking out the tag $VERSION..."
+		git checkout $VERSION > /dev/null
+	fi
+else
+	echo "A local branch exists for $VERSION. Updating..."
+	git checkout $VERSION && git pull
+fi
+
+cd - > /dev/null
 
 
 if [ ! -d $CONTENTDIR ]; then
