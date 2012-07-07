@@ -102,6 +102,12 @@ if [ ! -d $SOURCESDIR ]; then
 fi
 
 cd $SOURCESDIR
+
+echo "Checking out master branch..."
+git checkout master
+echo "Updating master branch..."
+git pull
+
 VERSION=`git tag -l | tail -n1`
 echo "Found latest Geany-Plugins version: $VERSION."
 
@@ -201,6 +207,9 @@ do
 
 	fi # if [ -d $SOURCESDIR$i -a $i"x" != "buildx" -a $i"x" != "pox" ];
 done
+
+echo "Switching back to master branch..."
+git checkout master
 
 # clean up any unneccessary files
 find $LOGDIR -mtime +7 -delete # delete logfiles older than 7 days
