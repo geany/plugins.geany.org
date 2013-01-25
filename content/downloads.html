@@ -33,6 +33,7 @@ if($handle = opendir($dir))
 	echo "<table>";
 	echo "<tr>";
 	echo "	<th>Download</th>";
+	echo "	<th>Type</th>";
 	echo "	<th>SIG</th>";
 	echo "	<th>";
 
@@ -67,6 +68,7 @@ if($handle = opendir($dir))
 	{
 		echo "<tr>";
 		echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.gz\">geany-plugins-" . $version . ".tar.gz</a></td>";
+		echo "	<td>Source Code</td>";
 		echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.gz.sig\">GPG Signature</a></td>";
 		if ($_GET['hash'] == "sha1")
 		{
@@ -83,6 +85,7 @@ if($handle = opendir($dir))
 	{
 		echo "<tr>";
 		echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.bz2\">geany-plugins-" . $version . ".tar.bz2</a></td>";
+		echo "	<td>Source Code</td>";
 		echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.bz2.sig\">GPG Signature</a></td>";
 		if ($_GET['hash'] == "sha1")
 		{
@@ -99,6 +102,7 @@ if($handle = opendir($dir))
 	{
 		echo "<tr>";
 		echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$wversion . "_setup.exe\">geany-plugins-" . $wversion . "_setup.exe</a></td>";
+		echo "	<td>Win32 Installer</td>";
 		echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$wversion . "_setup.exe.sig\">GPG Signature</a></td>";
 		if ($_GET['hash'] == "sha1")
 		{
