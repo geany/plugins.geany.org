@@ -63,6 +63,13 @@ print '<?xml version="1.0"?>';
 
 		<hr />
 
+		<h1>Third-Party plugins</h1>
+		<ul>
+			<li><li><a href="djynn.html">Djynn</a></li></li>
+		</ul>
+
+		<hr />
+
 		<ul>
 			<li><a href="downloads.html">Downloads</a></li>
 			<li><a href="install.html">Installation</a></li>

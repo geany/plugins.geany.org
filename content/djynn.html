@@ -1,0 +1,81 @@
+<h2>Geany Plugin</h2>
+<h3>Introduction</h3>
+
+<p>Like everyone else, more or less I suppose, I tried using every other editor available for
+Linux. None except Geany worked the way I wanted, and with Geany everything was perfect — I
+even liked the name — everything except the project manager. I couldn't get any of the
+project-manager-plugins to do what I wanted, and I had something similar to Notepad++,
+Dev-C++, or CodeBlocks in mind. So I decided to see if I could make a plugin of my own.
+The TreeBrowser plugin was a good starting point. It went well, even better than expected
+and it was so much fun I decided to add more functionality, and so when I needed sorting
+that was added, and after that was added commenting with a slightly different behaviour of
+the built in commenting.</p>
+
+<p>The name Djynn is of course a play on words, like the name Geany, both being oriental
+spirits, but with a 'y' instead of 'ie'/'i'. Having added more functionality than a simple
+project manager, I couldn't just name the plugin "Project Manager" or similar, and so I
+thought of the name Geany, and obviously it refers to the three-wish-fulfilling flask-dwelling
+spirit "Genie" with a modified spelling, and I came to think of the other oriental spirit
+"Djinn", of which I suppose the name Genie comes, and thought "hey, that could be a good name!".</p>
+
+<h3>Features</h3>
+
+<p>Djynn is a plugin for the Geany IDE and adds sorting and commenting functionality as well
+as a simple projectmanager that integrates with the built in project handler of Geany.</p>
+
+<p>Lines can be sorted in various ways, ascending, descending and reverse line order. If
+there is a selection, only the selected lines are sortered, otherwise the entire document is
+sorted.</p>
+
+<p>The commenting differs slightly from the built in commenting of Geany. It's of course a
+matter of taste and personal programming style, better to have a few options to choose from.
+It toggles line- and block-commenting, and add doxygen comments.</p>
+
+<p>The project manager inserts a tree for the project files. Files are added manually in each
+project, there can be any number of files, order in any way you like, and it's also possible to
+read and insert files from a directory including subdirectories (only source files are read,
+and non-project directories such as '.svn' excluded).</p>
+
+<p><img src="http://img35.imageshack.us/img35/7964/geanydjynn.png" /></p>
+
+<p>In the project manager you can have any number of workspaces, and each workspace can contain
+any number of projects. Each project is stored in a separate config-file, and if two workspaces
+creates two projects of the same name the same project is shared between workspaces. Projects
+also integrates with the built in Geany projects, and for every Djynn project a Geany project is
+created also.</p>
+
+<p>To make it easier working with many projects, a session handler has been added to Djynn, and
+you can easily add more sessions from the menu. Each session maintains its open documents, of
+course including position. When switching between sessions, all documents of the previous session
+are closed, and all documents of the new session opened. This way, you can work with one project,
+then another, then switch back, in the time it takes to close and open the documents.</p>
+
+<p><img src="http://img15.imageshack.us/img15/495/geanydjynnwssess.png" /></p>
+
+<p>Create new Workspaces and Sessions in the Djynn menu:</p>
+
+<p><img src="http://img841.imageshack.us/img841/1903/geanydjynnmenu.png" /></p>
+
+<h3>Installing Djynn</h3>
+
+<p>Djynn uses CMake, so you will need to install this, and you will of course need to install
+GTK+, minimum 2.6. To build and install Djynn, open a terminal and enter the following commands:</p>
+
+<pre>svn checkout http://libamanita.googlecode.com/svn/trunk/ libamanita
+cd libamanita/src/plugin/djynn
+mkdir build
+cd build
+cmake ..
+make
+sudo make install</pre>
+
+<p>Restart Geany and you should be able to see Djynn in your Plugin Manager (see Tools menu).</p>
+
+<p><img src="http://img11.imageshack.us/img11/9071/geanydjynnconfig.png" /></p>
+
+<p>Please, report any bugs!</p>
+
+<p>Suggestions on improvements are much welcome.</p>
+
+<p>The Djynn plugin project can be found at
+<a href="http://code.google.com/p/libamanita/wiki/djynn" target="_blank">Google code</a>.</p>
