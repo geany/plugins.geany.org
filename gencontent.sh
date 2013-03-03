@@ -47,7 +47,7 @@
 # missing!
 
 # SOURCESDIR is the directory, where the README files will be found
-SOURCESDIR=$HOME"/projects/geany/geany-plugins/geany-plugins/"
+SOURCESDIR=$HOME"/.tmp/geany-plugins/"
 
 # CONTENTDIR is the directory, where the generated HTML files will be put
 CONTENTDIR="./content/"
