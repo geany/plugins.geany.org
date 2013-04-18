@@ -1,6 +1,13 @@
 /.README.html
+content/0.17.1/
+content/0.18.0/
+content/0.19.0/
+content/0.20.0/
+content/0.21.1/
+content/1.22/
 /content/addons.html
 /content/codenav.html
+/content/commander.html
 /content/debugger.html
 /content/devhelp.html
 /content/geany-plugins-listing.html
@@ -19,9 +26,13 @@
 /content/geanyvc.html
 /content/geniuspaste.html
 /content/gproject.html
+/content/markdown.html
 /content/multiterm.html
+/content/pairtaghighlighter.html
+/content/pohelper.html
 /content/pretty-printer.html
 /content/shiftcolumn.html
+/content/scope.html
 /content/spellcheck.html
 /content/tableconvert.html
 /content/treebrowser.html
