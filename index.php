@@ -66,6 +66,7 @@ print '<?xml version="1.0"?>';
 		<h1>Third-Party plugins</h1>
 		<ul>
 			<li><a href="djynn.html">Djynn</a></li>
+			<li><a href="http://sourceforge.net/projects/geanyeasyunicodeinput/">GeanyEasyUnicodeInput</a></li>
 		</ul>
 
 		<hr />
