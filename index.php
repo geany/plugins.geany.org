@@ -65,7 +65,7 @@ print '<?xml version="1.0"?>';
 
 		<h1>Third-Party plugins</h1>
 		<ul>
-			<li><li><a href="djynn.html">Djynn</a></li></li>
+			<li><a href="djynn.html">Djynn</a></li>
 		</ul>
 
 		<hr />
