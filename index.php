@@ -68,6 +68,7 @@ print '<?xml version="1.0"?>';
 			<li><a href="djynn.html">Djynn</a></li>
 			<li><a href="https://sourceforge.net/projects/geanyeasyunicodeinput/">GeanyEasyUnicodeInput</a></li>
 			<li><a href="https://sourceforge.net/projects/geanyhighlightselectedword/">GeanyHighlightSelectedWord</a></li>
+			<li><a href="newline-plugin.html">Newline Plugin</a></li>
 		</ul>
 
 		<hr />
