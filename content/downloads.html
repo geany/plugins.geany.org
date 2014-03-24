@@ -37,7 +37,7 @@ if($handle = opendir($dir))
 	echo "	<th>SIG</th>";
 	echo "	<th>";
 
-	if ($_GET['hash'] != "md5")
+	if ( ( $hash = $_GET['hash'] ) != "md5" || $hash == "")
 	{
 		echo "<a href=\"?site=downloads&amp;hash=md5\">MD5</a> ";
 	}
