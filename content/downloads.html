@@ -37,12 +37,13 @@ if($handle = opendir($dir))
 	echo "	<th>SIG</th>";
 	echo "	<th>";
 
-	if ( ( $hash = $_GET['hash'] ) != "md5" || $hash == "")
+	// if sha1 is selected
+	if ($_GET['hash'] != "md5")
 	{
 		echo "<a href=\"?site=downloads&amp;hash=md5\">MD5</a> ";
 	}
 
-	else
+	else // if md5 is selected
 	{
 		echo "MD5 ";
 	}
@@ -50,12 +51,13 @@ if($handle = opendir($dir))
 
 	echo "/";
 
-	if ($_GET['hash'] != "sha1")
+	// if md5 is selected or nothing is selected
+	if ( ( $hash = $_GET['hash'] ) != "sha1" || $hash == "" )
 	{
 		echo " <a href=\"?site=downloads&amp;hash=sha1\">SHA1</a> ";
 	}
 
-	else
+	else // if sha is selected
 	{
 		echo " SHA1";
 	}
