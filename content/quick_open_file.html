@@ -1,0 +1,30 @@
+<h2>About</h2>
+<p>Quick Open File offers you the possibility to reach quickly a file. Without
+your mouse.</p>
+
+<h2>Installation</h2>
+<p>Download the plugin: https://github.com/samyBadjoudj/geany-qop-plugin/blob/master/qop.c</p>
+
+<p>
+Run:
+	<pre>
+	gcc -c  qop.c `pkg-config --cflags --libs  geany`  -fPIC;gcc -shared -o qop.so qop.o;
+	sudo cp ./qop.so /file/of/geany/plugins/ (ex:/usr/lib/x86_64-linux-gnu/geany)
+	</pre>
+</p>
+
+<h2>Usage</h2>
+<p> After installed successfully, load the plugin in Geany's plugin manager. Go
+to Tools and click on "Quick Open File". Here a POP-UP will help you to find
+your file quickly, by typing some letters that are in the name. Then select the
+file by the arrows (up or down), type enter... or esc to dismiss the POP-UP
+<br /> <img src="http://s1.postimg.org/69i6bssof/qop_geany.png" alt="Geany Quick
+Open File Plugin" /> </p>
+
+<h2>Requirements</h2>
+<ul class="simple">
+	<li>GTK &gt;= 2.8.0</li>
+</ul>
+
+<h2>Contact developers</h2>
+<p>Samy Badjoudj &lt;samy(dot)badjoudj(at)gmail(dot)com&gt;</p>

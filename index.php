@@ -70,7 +70,7 @@ print '<?xml version="1.0"?>';
 			<li><a href="https://sourceforge.net/projects/geanyeasyunicodeinput/">GeanyEasyUnicodeInput</a></li>
 			<li><a href="http://sourceforge.net/projects/geanyunicodetocodepoint/">GeanyUnicodeToCodepoint</a></li>
 			<li><a href="https://sourceforge.net/projects/geanyhighlightselectedword/">GeanyHighlightSelectedWord</a></li>
-			<li><a href="https://github.com/samyBadjoudj/geany-qop-plugin">Geany Quick Open File Plugin</a></li>
+			<li><a href="quick_open_file.html">Geany Quick Open File Plugin</a></li>
 		</ul>
 
 		<hr />
