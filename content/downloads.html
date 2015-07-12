@@ -133,10 +133,10 @@ tarballs by checking if the GPG signature is correct. To do this, follow
 these instructions:</p>
 
 <ul>
-	<li>Import the key via <code>gpg --recv-keys 588752a1</code></li>
+	<li>Import the key via <code>gpg --recv-keys B5688B006F78F01E</code></li>
 	<li>Verify the downloaded archive either with
-		<code>gpg --verify geany-plugins-0.20.tar.bz2.sig geany-plugins-0.20.tar.bz2</code> or
-		<code>gpg --verify geany-plugins-0.20.tar.gz.sig geany-plugins-0.20.tar.gz</code>
+		<code>gpg --verify geany-plugins-1.25.tar.bz2.sig geany-plugins-1.25.tar.bz2</code> or
+		<code>gpg --verify geany-plugins-1.25.tar.gz.sig geany-plugins-1.25.tar.gz</code>
 	</li>
 </ul>
 
@@ -146,9 +146,9 @@ something went wrong.</p>
 
 <p>Another complete example:</p>
 <code>
-wget http://download.geany.org/hyperair-pubkey.txt<br />
-gpg --import &lt; hyperair-pubkey.txt<br />
-gpg --verify geany-plugins-0.20.tar.bz2.sig geany-plugins-0.20.tar.bz2
+wget http://download.geany.org/frlan-pubkey.txt<br />
+gpg --import &lt; frlan-pubkey.txt<br />
+gpg --verify geany-plugins-1.25.tar.bz2.sig geany-plugins-1.25.tar.bz2
 </code>
 
 <h2>Download directly from version control</h2>
