@@ -86,8 +86,7 @@ print '<?xml version="1.0"?>';
 
 
 		<ul>
-			<li><a href="https://sourceforge.net/tracker/?group_id=222729&amp;atid=1056532">Bugtracker</a></li>
-			<li><a href="https://sourceforge.net/tracker/?group_id=222729&amp;atid=1056535">Feature Requests</a></li>
+			<li><a href="https://github.com/geany/geany-plugins/issues">Tracker</a></li>
 		</ul>
 
 		<hr />
