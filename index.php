@@ -115,11 +115,6 @@ print '<?xml version="1.0"?>';
 
 	<div id="footer">
 		<p>
-			<a href="http://sourceforge.net/projects/geany-plugins">
-				<img src="http://sflogo.sourceforge.net/sflogo.php?group_id=222729&amp;type=16"
-					width="150" height="40" alt="Get geany-plugins at SourceForge.net.
-					Fast, secure and Free Open Source software downloads" /></a>
-
 			<a href="https://github.com/geany/geany-plugins"
 				title="Geany-Plugins is on GitHub"
 				style="padding-left: 100px;">
