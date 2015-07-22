@@ -221,7 +221,7 @@ function gen_html_from_readme()
     sed -i "s/  /\t/g" .README.html
     # remove hard-coded references to http://plugins.geany.org and make the links
     # protocol-relative to not break SSL
-    sed -i "s/http:\/\/plugins.geany.org\//\/\/plugins.geany.org\//g" .README.html
+    sed -i "s,http://plugins.geany.org/,//plugins.geany.org/,g" .README.html
     cp .README.html ${dir}${plugin}.html
     echo -e "\n\n" >> ${LOGFILE}
 }
