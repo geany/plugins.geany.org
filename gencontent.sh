@@ -219,6 +219,9 @@ function gen_html_from_readme()
     # since tidy just outputs spaces, not tabs, we'll replace those spaces
     # with tabs again ourself
     sed -i "s/  /\t/g" .README.html
+    # remove hard-coded references to http://plugins.geany.org and make the links
+    # protocol-relative to not break SSL
+    sed -i "s/http:\/\/plugins.geany.org\//\/\/plugins.geany.org\//g" .README.html
     cp .README.html ${dir}${plugin}.html
     echo -e "\n\n" >> ${LOGFILE}
 }
