@@ -5,6 +5,7 @@ $dir = "./geany-plugins/";
 if($handle = opendir($dir))
 {
 	$versions = Array();
+	$hash = isset($_GET['hash']) ? $_GET['hash'] : "md5";
 
 	while(false !== ($file = readdir($handle)))
 	{
@@ -37,7 +38,7 @@ if($handle = opendir($dir))
 	echo "	<th>";
 
 	// if sha1 is selected
-	if ($_GET['hash'] != "md5")
+	if ($hash != "md5")
 	{
 		echo "<a href=\"?site=downloads&amp;hash=md5\">MD5</a> ";
 	}
@@ -51,7 +52,7 @@ if($handle = opendir($dir))
 	echo "/";
 
 	// if md5 is selected or nothing is selected
-	if ( ( $hash = $_GET['hash'] ) != "sha1" || $hash == "" )
+	if ( $hash != "sha1" || $hash == "" )
 	{
 		echo " <a href=\"?site=downloads&amp;hash=sha1\">SHA1</a> ";
 	}
@@ -71,7 +72,7 @@ if($handle = opendir($dir))
 		echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.gz\">geany-plugins-" . $version . ".tar.gz</a></td>";
 		echo "	<td>Source Code</td>";
 		echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.gz.sig\">GPG Signature</a></td>";
-		if ($_GET['hash'] == "sha1")
+		if ($hash == "sha1")
 		{
 			echo "	<td><pre>" . sha1_file($dir . "geany-plugins-" .  $version . ".tar.gz") . "</pre></td>";
 		} else {
@@ -88,7 +89,7 @@ if($handle = opendir($dir))
 		echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.bz2\">geany-plugins-" . $version . ".tar.bz2</a></td>";
 		echo "	<td>Source Code</td>";
 		echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.bz2.sig\">GPG Signature</a></td>";
-		if ($_GET['hash'] == "sha1")
+		if ($hash == "sha1")
 		{
 			echo "	<td><pre>" . sha1_file($dir . "geany-plugins-" .  $version . ".tar.bz2") . "</pre></td>";
 		} else {
@@ -105,7 +106,7 @@ if($handle = opendir($dir))
 		echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$wversion . "_setup.exe\">geany-plugins-" . $wversion . "_setup.exe</a></td>";
 		echo "	<td>Win32 Installer</td>";
 		echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$wversion . "_setup.exe.sig\">GPG Signature</a></td>";
-		if ($_GET['hash'] == "sha1")
+		if ($hash == "sha1")
 		{
 			echo "	<td><pre>" . sha1_file($dir . "geany-plugins-" .  $wversion . "_setup.exe") . "</pre></td>";
 		} else {
