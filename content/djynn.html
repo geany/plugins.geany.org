@@ -1,81 +1,178 @@
 <h2>Djynn</h2>
 <h3>Introduction</h3>
 
-<p>Like everyone else, more or less I suppose, I tried using every other editor available for
-Linux. None except Geany worked the way I wanted, and with Geany everything was perfect — I
-even liked the name — everything except the project manager. I couldn't get any of the
-project-manager-plugins to do what I wanted, and I had something similar to Notepad++,
-Dev-C++, or CodeBlocks in mind. So I decided to see if I could make a plugin of my own.
-The TreeBrowser plugin was a good starting point. It went well, even better than expected
-and it was so much fun I decided to add more functionality, and so when I needed sorting
-that was added, and after that was added commenting with a slightly different behaviour of
-the built in commenting.</p>
+<p>The name <i>Djynn</i> is a play on words - like the name <i>Geany</i>; both being oriental
+spirits of mythology, but with a 'y' instead of 'ie'/'i'. Since it isn't a one-function-plugin
+but rather a set of various functionality, "Plugin manager" or similar wasn't appropriate in
+naming the project.</p>
 
-<p>The name Djynn is of course a play on words, like the name Geany, both being oriental
-spirits, but with a 'y' instead of 'ie'/'i'. Having added more functionality than a simple
-project manager, I couldn't just name the plugin "Project Manager" or similar, and so I
-thought of the name Geany, and obviously it refers to the three-wish-fulfilling flask-dwelling
-spirit "Genie" with a modified spelling, and I came to think of the other oriental spirit
-"Djinn", of which I suppose the name Genie comes, and thought "hey, that could be a good name!".</p>
+<p>The Djynn plugin project can be found at <a href="https://launchpad.net/djynn" target="_blank">Launchpad</a>.</p>
 
 <h3>Features</h3>
 
-<p>Djynn is a plugin for the Geany IDE and adds sorting and commenting functionality as well
-as a simple projectmanager that integrates with the built in project handler of Geany.</p>
+<ol>
+	<li><a href="#project-manager">Project Manager</a></li>
+	<li><a href="#sort-lines">Sort Lines</a></li>
+	<li><a href="#comments">Comments</a></li>
+	<li><a href="#encoding">Encoding</a></li>
+	<li><a href="#keybindings">Keybindings</a></li>
+	<li><a href="#configure">Configuration</a></li>
+	<li><a href="#install">Install</a></li>
+</ol>
+
+<p><img src="http://i.imgur.com/oR5NywA.png" style="margin: 10px;box-shadow: 1px 2px 20px 2px #999999;" /></p>
+<!--p><img src="djynn-project-manager.png" style="margin: 10px;box-shadow: 1px 2px 20px 2px #999999;" /></p-->
+
+<a name="project-manager"></a><h4>Project Manager</h4>
+
+<p><i>Djynn</i> adds a simple projectmanager that integrates with the built in project handler
+of <i>Geany IDE</i>.</p>
+
+<p>The project manager inserts a page in the sidebar with a tree for the project files. Files
+can be read from a directory or added manually in each project, there can be any number of
+files but the manager is not designed for gigantic numbers of files; order files and folders in
+any way you like by dragging and dropping.</p>
+
+<p>Any number of workspaces can be created, and each workspace may contain any number of projects.
+Each project is stored in a separate config-file, and if two workspaces creates two projects of the
+same name the same project is shared between workspaces. Projects also integrates with the built in
+Geany projects, and for every Djynn project a Geany project is created automatically also.</p>
+
+<p>To make it easier working with many projects, a session handler has been added, and
+you can add more sessions in the menu. Each session maintains its open documents. When switching
+between sessions, all documents of the previous session are closed, and all documents of the new
+session are opened with the cursor at the stored position.</p>
+
+<p><img src="http://i.imgur.com/Sp9SMGs.png" /></p>
+<!--p><img src="djynn-workspaces-sessions.png" /></p-->
+
+<p>Create new Projects, Workspaces and Sessions in the Project->Project Manager menu:</p>
+
+<p><img src="http://i.imgur.com/cA53wWR.png" /></p>
+<!--p><img src="djynn-menu-project-manager.png" /></p-->
+
+<a name="sort-lines"></a><h4>Sort Lines</h4>
 
 <p>Lines can be sorted in various ways, ascending, descending and reverse line order. If
-there is a selection, only the selected lines are sortered, otherwise the entire document is
-sorted.</p>
+there is a selection, only the selected lines are sorted, otherwise the entire document.</p>
 
-<p>The commenting differs slightly from the built in commenting of Geany. It's of course a
-matter of taste and personal programming style, better to have a few options to choose from.
-It toggles line- and block-commenting, and add doxygen comments.</p>
+<p><img src="http://i.imgur.com/BJh7wd9.png" /></p>
+<!--p><img src="djynn-menu-sort-lines.png" /></p-->
 
-<p>The project manager inserts a tree for the project files. Files are added manually in each
-project, there can be any number of files, order in any way you like, and it's also possible to
-read and insert files from a directory including subdirectories (only source files are read,
-and non-project directories such as '.svn' excluded).</p>
+<a name="comments"></a><h4>Comments</h4>
 
-<p><img src="http://img35.imageshack.us/img35/7964/geanydjynn.png" /></p>
+<p>The commenting differs slightly from the built in commenting of <i>Geany</i>. 
+It toggles line- and block-commenting, and add javadoc/doxygen comments. A function
+for stripping comments is available for a subset of Geany's supported filetypes.</p>
 
-<p>In the project manager you can have any number of workspaces, and each workspace can contain
-any number of projects. Each project is stored in a separate config-file, and if two workspaces
-creates two projects of the same name the same project is shared between workspaces. Projects
-also integrates with the built in Geany projects, and for every Djynn project a Geany project is
-created also.</p>
+<p>Line comments are placed at the beginning of the line, block comments at the beginning and
+end of the selected text - or if no selection, at the position of the cursor.</p>
 
-<p>To make it easier working with many projects, a session handler has been added to Djynn, and
-you can easily add more sessions from the menu. Each session maintains its open documents, of
-course including position. When switching between sessions, all documents of the previous session
-are closed, and all documents of the new session opened. This way, you can work with one project,
-then another, then switch back, in the time it takes to close and open the documents.</p>
+<p>Javadoc/Doxygen comments have three formats depending on the selected text:</p>
 
-<p><img src="http://img15.imageshack.us/img15/495/geanydjynnwssess.png" /></p>
+<ol>
+	<li>When the cursor is at a function definition, a comment is inserted in this format:
+<pre>/**
+ * @param a 
+ * @param b 
+ * @return 
+ */
+int foo(unsigned char *a,int *b) {
+</pre></li>
+	<li>When a block of lines are selected starting and ending with one or more blank lines,
+a group comment is inserted:
+<pre>
+/** @name 
+ * @{ */
+int foo(unsigned char *a,int *b);
+void bar(int c,const char *b);
+/** @} */
 
-<p>Create new Workspaces and Sessions in the Djynn menu:</p>
+</pre></li>
+	<li>When one or more lines are selected not starting and ending with a blank line,
+indented line comments are inserted:
+<pre>
+void foo(int a);	//!&lt; 
+void bar(int b);	//!&lt; 
+</pre></li>
+</ol>
 
-<p><img src="http://img841.imageshack.us/img841/1903/geanydjynnmenu.png" /></p>
+<p><img src="http://i.imgur.com/bHQjBTF.png" /></p>
+<!--p><img src="djynn-menu-comments.png" /></p-->
 
-<h3>Installing Djynn</h3>
+<a name="encoding"></a><h4>Encoding</h4>
+
+<p>Mark the text to convert, or the entire document will be encoded/decoded, and select format
+in the menu.</p>
+
+<ol>
+	<li>Hexadecimal Encoding: Chars are converted to and from hexadecimal, so ' ' (space)
+	becomes '20' and 'abc' becomes '616263'.</li>
+	<li>Base58 Encoding: Convert text between base58.</li>
+	<li>Base64 Encoding: Convert text between base64.</li>
+	<li>C String Escape: Escape characters in text, e.g. newline is replaced by '\n'
+	etc. Also unicode characters are replaced by '\uXXXX'.</li>
+	<li>HTML Encoding: Replace HTML-entities, e.g. '&amp;' is replaced by '&amp;amp;'.</li>
+	<li>URL Encoding: Format text for a URL.</li>
+</ol>
+
+<p><img src="http://i.imgur.com/gAETcCy.png" /></p>
+<!--p><img src="djynn-menu-encoding.png" /></p-->
+
+<a name="keybindings"></a><h4>Keybindings</h4>
+
+<p>Keybindings have been added to some of the features. To set keybindings, in the
+menu select: <i>Edit->Preferences->Keybindings</i> and scroll down the list to
+the section <i>Djynn</i>.</p>
+
+<a name="configure"></a><h4>Configuration</h4>
+
+<p>Configure the plugin to your liking:</p>
+
+<p><img src="http://i.imgur.com/78EoVPr.png" /></p>
+<!--p><img src="djynn-configure.png" /></p-->
+
+<hr />
+
+<a name="install"></a><h3>Install</h3>
+
+<h4>Ubuntu: Install from Launchpad's PPA</h4>
+
+<p>Run these commands in a terminal:
+<pre>
+sudo su
+add-apt-repository ppa:per-lowgren/repo
+apt-get update
+apt-get install geany-plugin-djynn
+exit
+</pre></p>
+
+<h4>Build from sources</h4>
 
 <p>Djynn uses CMake, so you will need to install this, and you will of course need to install
 GTK+, minimum 2.6. To build and install Djynn, open a terminal and enter the following commands:</p>
 
-<pre>svn checkout http://libamanita.googlecode.com/svn/trunk/ libamanita
-cd libamanita/src/plugin/djynn
-mkdir build
-cd build
+<p>Only Linux has been tested, though compiling for Windows with MinGW should work fine -
+provided all dependencies meet.</p>
+
+<pre>sudo su
+apt-get update && apt-get install cmake build-essential libgtk2.0-dev libglib2.0-dev gettext geany
+bzr branch lp:~per-lowgren/djynn/trunk /tmp/djynn
+mkdir /tmp/djynn/build && cd /tmp/djynn/build
 cmake ..
 make
-sudo make install</pre>
+sudo make install
+cd ../.. && rm -rf djynn
+exit
+</pre>
 
-<p>Restart Geany and you should be able to see Djynn in your Plugin Manager (see Tools menu).</p>
+<p>Restart Geany and you should be able to see Djynn in your Plugin Manager.</p>
 
-<p><img src="http://img11.imageshack.us/img11/9071/geanydjynnconfig.png" /></p>
+<p><img src="http://i.imgur.com/9yM89Cr.png" /></p>
+<!--p><img src="djynn-plugin-manager.png" /></p-->
 
-<p>Please, report any bugs!</p>
+<hr />
 
-<p>Suggestions on improvements are much welcome.</p>
+<p>Please, <a href="mailto:per.lowgren@gmail.com">report any bugs</a>!</p>
 
-<p>The Djynn plugin project can be found at
-<a href="http://code.google.com/p/libamanita/wiki/djynn" target="_blank">Google code</a>.</p>
+<p>The Djynn plugin project can be found at <a href="https://launchpad.net/djynn" target="_blank">Launchpad</a>.</p>
