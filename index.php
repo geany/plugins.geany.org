@@ -1,12 +1,12 @@
 <?php
 /*
- *      index.php
- * 		Website plugins.geany.org
+ *	index.php
+ *	Website plugins.geany.org
  *
- *      (C) Copyright 2009 by Dominic Hopf <dmaphy@googlemail.com>
- * 		(C) Copyright 2010 by Michael Spahn <m.spahn@any0n3.de>
- *      Version: 1.0.0
- *      Last Change: 2010-7-24
+ *	(C) Copyright 2009 by Dominic Hopf <dmaphy@googlemail.com>
+ *	(C) Copyright 2010 by Michael Spahn <m.spahn@any0n3.de>
+ *	Version: 1.0.0
+ *	Last Change: 2010-7-24
  */
 
 define('CONTENTPATH','./content/');
