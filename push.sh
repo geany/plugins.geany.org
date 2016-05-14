@@ -2,6 +2,7 @@
 
 #~ set -x
 
+GIT_SOURCESDIR=${HOME}"/.tmp/geany-plugins/"  # should be same as $SOURCESDIR in gencontent.sh
 SOURCEDIR="/home/dmaphy/webroot/websites/plugins.geany.org/"
 PREVIEWDIR="/home/dmaphy/plugins.geany.org_preview/"
 STABLEDIR="/home/dmaphy/plugins.geany.org_stable/"
@@ -71,7 +72,9 @@ else
 			fi
 
 			rsync -avC $EXARG --delete $PREVIEWDIR $STABLEDIR
-			;;
+			# hack for images for the Markdown plugin
+			rsync -avC ${GIT_SOURCESDIR}markdown/docs/*.png $STABLEDIR
+ 			;;
 		*)
 			echo "Usage: $0 [preview|stable]";
 			;;

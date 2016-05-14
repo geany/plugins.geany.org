@@ -5,6 +5,7 @@ $dir = "./geany-plugins/";
 if($handle = opendir($dir))
 {
 	$versions = Array();
+	$hash = isset($_GET['hash']) ? $_GET['hash'] : "md5";
 
 	while(false !== ($file = readdir($handle)))
 	{
@@ -37,7 +38,7 @@ if($handle = opendir($dir))
 	echo "	<th>";
 
 	// if sha1 is selected
-	if ($_GET['hash'] != "md5")
+	if ($hash != "md5")
 	{
 		echo "<a href=\"?site=downloads&amp;hash=md5\">MD5</a> ";
 	}
@@ -51,7 +52,7 @@ if($handle = opendir($dir))
 	echo "/";
 
 	// if md5 is selected or nothing is selected
-	if ( ( $hash = $_GET['hash'] ) != "sha1" || $hash == "" )
+	if ( $hash != "sha1" || $hash == "" )
 	{
 		echo " <a href=\"?site=downloads&amp;hash=sha1\">SHA1</a> ";
 	}
@@ -71,7 +72,7 @@ if($handle = opendir($dir))
 		echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.gz\">geany-plugins-" . $version . ".tar.gz</a></td>";
 		echo "	<td>Source Code</td>";
 		echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.gz.sig\">GPG Signature</a></td>";
-		if ($_GET['hash'] == "sha1")
+		if ($hash == "sha1")
 		{
 			echo "	<td><pre>" . sha1_file($dir . "geany-plugins-" .  $version . ".tar.gz") . "</pre></td>";
 		} else {
@@ -88,7 +89,7 @@ if($handle = opendir($dir))
 		echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.bz2\">geany-plugins-" . $version . ".tar.bz2</a></td>";
 		echo "	<td>Source Code</td>";
 		echo "	<td><a href=\"./geany-plugins/geany-plugins-" . $version . ".tar.bz2.sig\">GPG Signature</a></td>";
-		if ($_GET['hash'] == "sha1")
+		if ($hash == "sha1")
 		{
 			echo "	<td><pre>" . sha1_file($dir . "geany-plugins-" .  $version . ".tar.bz2") . "</pre></td>";
 		} else {
@@ -105,7 +106,7 @@ if($handle = opendir($dir))
 		echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$wversion . "_setup.exe\">geany-plugins-" . $wversion . "_setup.exe</a></td>";
 		echo "	<td>Win32 Installer</td>";
 		echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$wversion . "_setup.exe.sig\">GPG Signature</a></td>";
-		if ($_GET['hash'] == "sha1")
+		if ($hash == "sha1")
 		{
 			echo "	<td><pre>" . sha1_file($dir . "geany-plugins-" .  $wversion . "_setup.exe") . "</pre></td>";
 		} else {
@@ -135,8 +136,8 @@ these instructions:</p>
 <ul>
 	<li>Import the key via <code>gpg --recv-keys B5688B006F78F01E</code></li>
 	<li>Verify the downloaded archive either with
-		<code>gpg --verify geany-plugins-1.25.tar.bz2.sig geany-plugins-1.25.tar.bz2</code> or
-		<code>gpg --verify geany-plugins-1.25.tar.gz.sig geany-plugins-1.25.tar.gz</code>
+		<code>gpg --verify geany-plugins-1.26.tar.bz2.sig geany-plugins-1.26.tar.bz2</code> or
+		<code>gpg --verify geany-plugins-1.26.tar.gz.sig geany-plugins-1.26.tar.gz</code>
 	</li>
 </ul>
 
@@ -148,7 +149,7 @@ something went wrong.</p>
 <code>
 wget http://download.geany.org/frlan-pubkey.txt<br />
 gpg --import &lt; frlan-pubkey.txt<br />
-gpg --verify geany-plugins-1.25.tar.bz2.sig geany-plugins-1.25.tar.bz2
+gpg --verify geany-plugins-1.26.tar.bz2.sig geany-plugins-1.26.tar.bz2
 </code>
 
 <h2>Download directly from version control</h2>
@@ -160,19 +161,7 @@ as well. To do this, just clone the <a href=
 git clone git://github.com/geany/geany-plugins.git geany-plugins
 </code>
 
-<p>You can build the plugins from those sources then using Waf:</p>
-<code>
-./waf configure<br />
-./waf build -p -k
-</code>
-
-<p>You can either copy the resulting .so files to ~/.config/geany/plugins/ or
-install them to /usr/share/geany/ with running following command as root:</p>
-<code>
-./waf install
-</code>
-
-<p>Or either do it the autotools way as well:</p>
+<p>Build and install all plugins:</p>
 <code>
 ./autogen.sh # Note this already runs ./configure<br />
 make<br	>

@@ -1,12 +1,12 @@
 <?php
 /*
- *      index.php
- * 		Website plugins.geany.org
+ *	index.php
+ *	Website plugins.geany.org
  *
- *      (C) Copyright 2009 by Dominic Hopf <dmaphy@googlemail.com>
- * 		(C) Copyright 2010 by Michael Spahn <m.spahn@any0n3.de>
- *      Version: 1.0.0
- *      Last Change: 2010-7-24
+ *	(C) Copyright 2009 by Dominic Hopf <dmaphy@googlemail.com>
+ *	(C) Copyright 2010 by Michael Spahn <m.spahn@any0n3.de>
+ *	Version: 1.0.0
+ *	Last Change: 2010-7-24
  */
 
 define('CONTENTPATH','./content/');
@@ -43,9 +43,10 @@ print '<?xml version="1.0"?>';
 </head>
 <body>
 	<a href="https://github.com/geany/geany-plugins">
-		<img style="position: fixed; top: 0; left: 0; border: 0;"
-			src="./images/ForkMe_Blk.png" alt="Fork me on GitHub"></a>
-
+		<img 	style="position: absolute; top: 0; left: 0; border: 0;"
+				src="https://camo.githubusercontent.com/8b6b8ccc6da3aa5722903da7b58eb5ab1081adee/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6f72616e67655f6666373630302e706e67"
+				alt="Fork me on GitHub"
+				data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png"></a>
 	<div id="header">
 		<a href="./">
 		<img src="./images/geany.png" alt="Geany Logo"
@@ -115,11 +116,6 @@ print '<?xml version="1.0"?>';
 
 	<div id="footer">
 		<p>
-			<a href="http://sourceforge.net/projects/geany-plugins">
-				<img src="http://sflogo.sourceforge.net/sflogo.php?group_id=222729&amp;type=16"
-					width="150" height="40" alt="Get geany-plugins at SourceForge.net.
-					Fast, secure and Free Open Source software downloads" /></a>
-
 			<a href="https://github.com/geany/geany-plugins"
 				title="Geany-Plugins is on GitHub"
 				style="padding-left: 100px;">
