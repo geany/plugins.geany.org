@@ -123,10 +123,9 @@ print '<?xml version="1.0"?>';
 				style="width: 91px; height: 40px;" alt="GitHub Logo" /></a>
 		</p>
 
-		<p>&copy; Dominic Hopf &amp; Michael Spahn <br />
-		Contact <a href="http://dominichopf.de/">Dominic Hopf</a> or the
-		<a href="http://www.geany.org/Support/MailingList">Geany Team</a>
-		for questions.</p>
+		<p> Contact the <a
+		href="http://www.geany.org/Support/MailingList">Geany Team</a> for
+		questions.</p>
 	</div>
 </body>
 </html>
