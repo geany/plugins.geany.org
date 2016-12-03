@@ -68,7 +68,7 @@ LOGDIR=${WORKDIR}"gencontent_logs/"
 
 # plugins to exclude from the nightly re-generation via rst2html because they
 # have a separate HTML page not generated from the README file
-declare -a EXCLUDE_PLUGINS=( geanylatex geanysendmail geanylua  jsonprettifier quick_open_file )
+declare -a EXCLUDE_PLUGINS=( geanylatex geanylua jsonprettifier quick_open_file sendmail )
 
 RST2HTML=$(which rst2html)
 TIDY=$(which tidy)
