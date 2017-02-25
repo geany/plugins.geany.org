@@ -1,0 +1,87 @@
+<div class="section" id="about">
+<h3>
+About
+</h3>
+<p>
+This plugin makes it easier to navigate a Python codebase.
+</p>
+<p>
+Currently, its only feature is &quot;jump to Python module&quot;. It tries to open the source file
+corresponding to a given Python module (dotted path).
+</p>
+</div>
+<div class="section" id="installation">
+<h3>
+Installation
+</h3>
+<p>
+You need Geany 1.27+.
+</p>
+<ol class="arabic simple">
+<li>Install the <a class="reference external" href=
+"http://plugins.geany.org/geanypy.html">GeanyPy</a> plugin. On Debian/Ubuntu, install <tt class=
+"docutils literal"><span class="pre">geany-plugin-py</span></tt> <a class="reference external"
+href="https://bugs.launchpad.net/ubuntu/+source/geany-plugins/+bug/1592928">as well as</a>
+<tt class="docutils literal"><span class="pre">python-gtk2</span></tt>.
+</li>
+<li>Download the latest release from <a class="reference external" href=
+"https://github.com/vfaronov/geany-pynav/releases">github.com/vfaronov/geany-pynav</a>.
+</li>
+<li>Extract <tt class="docutils literal">pynav.py</tt> and put it on your <a class=
+"reference external" href="http://www.geany.org/manual/current/index.html#plugins">Geany plugin
+path</a>, e.g. in <tt class="docutils literal"><span class=
+"pre">~/.config/geany/plugins/</span></tt>.
+</li>
+<li>Open Geany's plugin manager (Tools → Plugin Manager) and enable GeanyPy and Python Navigation.
+</li>
+<li>Click Keybindings to set your preferred key for &quot;Jump to Python module&quot;. (This is
+optional: you can also invoke it from the Tools menu.)
+</li>
+</ol>
+</div>
+<div class="section" id="usage">
+<h3>
+Usage
+</h3>
+<p>
+When you press the chosen keybinding (or invoke Tools → Jump to Python module), the plugin first
+tries to figure out which Python module name (dotted path) you wish to look up:
+</p>
+<ol class="arabic simple">
+<li>if there is some selected text in the current document, then it is used;
+</li>
+<li>otherwise, if the cursor is on a line beginning with <tt class="docutils literal">import X</tt>
+or <tt class="docutils literal">from X</tt>, then <tt class="docutils literal">X</tt> is used;
+</li>
+<li>otherwise, you are prompted to enter the dotted path manually.
+</li>
+</ol>
+<p>
+Then the plugin tries to find the file corresponding to that module name. For example, if the
+dotted path is <tt class="docutils literal">foo.bar</tt>, the plugin looks for <tt class=
+"docutils literal">foo/bar.py</tt> or <tt class="docutils literal">foo/bar/__init__.py</tt> in a
+few places around the current document.
+</p>
+<p>
+You can also configure the search path on a per-project basis. To do so, open your Geany project
+file (the one whose name ends in <tt class="docutils literal">.geany</tt>) and add a section like
+this:
+</p>
+<pre class="literal-block">
+[pynav]
+path=/home/user/project/src:/home/user/project/lib
+</pre>
+<p>
+then restart Geany (reopen the project). The format is similar to that for <tt class=
+"docutils literal">PYTHONPATH</tt>.
+</p>
+</div>
+<div class="section" id="contact-developers">
+<h3>
+Contact developers
+</h3>
+<p>
+This plugin is on GitHub: <a class="reference external" href=
+"https://github.com/vfaronov/geany-pynav">https://github.com/vfaronov/geany-pynav</a>
+</p>
+</div>

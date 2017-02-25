@@ -1,0 +1,66 @@
+<div class="section" id="about">
+<h3>
+About
+</h3>
+<p>
+This plugin shows and hides the Geany menu and status bars on a keystroke.
+</p>
+<p>
+Most of the time, when using Geany, I don't need the menu and status bars; they are just noise. But
+occasionally I want to check the status bar (e.g. for the line/column number) or browse the menu.
+So I want to toggle their visibility with a keystroke.
+</p>
+</div>
+<div class="section" id="installation">
+<h3>
+Installation
+</h3>
+<p>
+You need Geany 1.27+.
+</p>
+<ol class="arabic simple">
+<li>Make sure that &quot;Show status bar&quot; (Geany preferences → Interface → Miscellaneous) is
+<strong>enabled</strong>.
+</li>
+<li>Install the <a class="reference external" href=
+"http://plugins.geany.org/geanypy.html">GeanyPy</a> plugin. On Debian/Ubuntu, install <tt class=
+"docutils literal"><span class="pre">geany-plugin-py</span></tt> <a class="reference external"
+href="https://bugs.launchpad.net/ubuntu/+source/geany-plugins/+bug/1592928">as well as</a>
+<tt class="docutils literal"><span class="pre">python-gtk2</span></tt>.
+</li>
+<li>Download the latest release from <a class="reference external" href=
+"https://github.com/vfaronov/geany-togglebars/releases">github.com/vfaronov/geany-togglebars</a>.
+</li>
+<li>Extract <tt class="docutils literal">togglebars.py</tt> and put it on your <a class=
+"reference external" href="http://www.geany.org/manual/current/index.html#plugins">Geany plugin
+path</a>, e.g. in <tt class="docutils literal"><span class=
+"pre">~/.config/geany/plugins/</span></tt>.
+</li>
+<li>Open Geany's plugin manager (Tools → Plugin Manager) and enable GeanyPy and Toggle Bars.
+</li>
+<li>Select Toggle Bars, click Keybindings, and set your preferred key for &quot;Toggle menu and
+status bars&quot;.
+</li>
+</ol>
+</div>
+<div class="section" id="usage">
+<h3>
+Usage
+</h3>
+<p>
+Just press your configured keybinding to toggle the menu and status bars.
+</p>
+<p>
+Because it's so useful to see the progress bar during a build, the status bar will be automatically
+shown whenever the progress bar is shown (and hidden afterwards).
+</p>
+</div>
+<div class="section" id="contact-developers">
+<h3>
+Contact developers
+</h3>
+<p>
+This plugin is on GitHub: <a class="reference external" href=
+"https://github.com/vfaronov/geany-togglebars">https://github.com/vfaronov/geany-togglebars</a>
+</p>
+</div>
