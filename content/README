@@ -59,6 +59,22 @@ plugins.geany.org website.
 When you're done, have a look if your HTML file looks good (get some
 inspiration from already existing plugin sites) and send it to Dominic then.
 
+Images
+------
+
+In the past it has happend that images on external sites become unavailable.
+If you like to include images in your documentation we would prefer a pull-request
+against the repository https://github.com/geany/plugins.geany.org. To
+create a pull-request with your images please proceed as follows:
+
+* fork the repository on github
+* upload/put your image files in the folder /images/plugins/{your plugin name}
+* create the pull-request
+
+If you write HTML directly you can simply link to the image on github.
+If you use restructuredText then also simply use the full URL for the image link, e.g.:
+
+    image:: http://plugins.geany.org/images/plugins/{your plugin name}/example.png
 
 Contact
 -------
