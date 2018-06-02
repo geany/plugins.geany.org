@@ -16,17 +16,20 @@ if (isset($_GET['site']))
 	if (file_exists(CONTENTPATH . $_GET['site'] . '.html'))
 	{
 		define('CONTENTFILE', CONTENTPATH . $_GET['site'] . '.html');
+		define('PAGETITLE', $_GET['site']);
 	}
 
 	else
 	{
 		define('CONTENTFILE', CONTENTPATH . '404.html');
+		define('PAGETITLE', 'Plugin could not be found.');
 	}
 }
 
 else
 {
 	define('CONTENTFILE', CONTENTPATH . 'start.html');
+	define('PAGETITLE', '');
 }
 
 print '<?xml version="1.0"?>';
@@ -37,7 +40,7 @@ print '<?xml version="1.0"?>';
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
 <head>
-	<title>Plugins for Geany</title>
+	<title>Plugins for Geany [<?php print PAGETITLE ?>]</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="./stylesheets/mainstyle.css" />
 </head>
