@@ -115,7 +115,7 @@ print '<?xml version="1.0"?>';
 		</ul>
 	</div>
 
-		<div id="content">
+	<div id="content">
 		<?php include_once CONTENTFILE; ?>
 	</div>
 
