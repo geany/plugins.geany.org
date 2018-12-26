@@ -134,7 +134,7 @@ tarballs by checking if the GPG signature is correct. To do this, follow
 these instructions:</p>
 
 <ul>
-	<li>Import the key via <code>gpg --recv-keys B5688B006F78F01E</code></li>
+	<li>Import the key via <code>gpg --recv-keys B507ACD04BA283C9</code></li>
 	<li>Verify the downloaded archive either with
 		<code>gpg --verify geany-plugins-<?php print $version ?>.tar.bz2.sig geany-plugins-<?php print $version ?>.tar.bz2</code> or
 		<code>gpg --verify geany-plugins-<?php print $version ?>.tar.gz.sig geany-plugins-<?php print $version ?>.tar.gz</code>
@@ -147,8 +147,8 @@ something went wrong.</p>
 
 <p>Another complete example:</p>
 <code>
-wget http://download.geany.org/frlan-pubkey.txt<br />
-gpg --import &lt; frlan-pubkey.txt<br />
+wget http://download.geany.org/frlan-pubkey-2018.txt<br />
+gpg --import &lt; frlan-pubkey-2018.txt<br />
 gpg --verify geany-plugins-<?php print $version ?>.tar.bz2.sig geany-plugins-<?php print $version ?>.tar.bz2
 </code>
 
