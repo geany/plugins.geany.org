@@ -66,11 +66,11 @@ CONTENTDIR=${WORKDIR}"content/"
 # generation of the content files
 LOGDIR=${WORKDIR}"gencontent_logs/"
 
-# plugins to exclude from the nightly re-generation via rst2html because they
+# plugins to exclude from the nightly re-generation via rst2html5 because they
 # have a separate HTML page not generated from the README file
 declare -a EXCLUDE_PLUGINS=( geanylua jsonprettifier quick_open_file togglebar pynav )
 
-RST2HTML=$(which rst2html)
+RST2HTML5=$(which rst2html5)
 TIDY=$(which tidy)
 
 # List of plugins, available in the letest release
@@ -80,9 +80,9 @@ declare -a RELEASE_PLUGIN_LIST
 declare -a MASTER_PLUGIN_LIST
 
 
-if [ ! -x "$RST2HTML" ]
+if [ ! -x "$RST2HTML5" ]
 then
-    echo "rst2html not found. Exiting."
+    echo "rst2html5 not found; to install it, use 'pip install rst2html5'. Exiting."
     exit 127
 fi
 
@@ -193,7 +193,7 @@ function gen_html_from_readme()
 
     cd ${CONTENTDIR}
     # TODO: newer versions of rst2html may face problems with the configuration files encoding
-    $RST2HTML -s --config=${CONTENTDIR}"rst2html_config.conf" ${SOURCESDIR}${plugin}/README ${SOURCESDIR}.README.html 2> $LOGFILE
+    $RST2HTML5 -s --config=${CONTENTDIR}"rst2html_config.conf" ${SOURCESDIR}${plugin}/README ${SOURCESDIR}.README.html 2> $LOGFILE
     cd - > /dev/null
 
     retcode=$?

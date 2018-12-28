@@ -37,14 +37,14 @@ your file. He will do the rest for you.</li>
 <div class="section" id="nd-way">
 <h3>2nd Way</h3>
 <p>This one will only work, if you write your README file in restructuredText
-as some other plugin authors do. You will need to use two tools: rst2html
+as some other plugin authors do. You will need to use two tools: rst2html5
 and HTML Tidy. Dominic wrote some configuration files for use with those
 tools. If you do not have them yet, feel free to contact Dominic to get
 them. The result should be an almost perfect HTML file which can be
 included into the plugins.geany.org website. Do this steps to generate the
 file:</p>
 <blockquote>
-rst2html --config=rst2html_config.conf README &gt; {your plugin name}.html
+rst2html5 --config=rst2html_config.conf README &gt; {your plugin name}.html
 tidy -config tidy.conf {your plugin name}.html</blockquote>
 <p>While {your plugin name} is the actual UNIX name (lowercase!) of your plugin.
 Note: There is no need for HTML headers and body and so on. Those will be

@@ -39,14 +39,14 @@ wait a night before contacting Dominic to have a deeper look on the issue.
 -------
 
 This one will only work, if you write your README file in restructuredText
-as some other plugin authors do. You will need to use two tools: rst2html
+as some other plugin authors do. You will need to use two tools: rst2html5
 and HTML Tidy. Dominic wrote some configuration files for use with those
 tools. The files can be found on github at https://github.com/geany/plugins.geany.org/tree/master/content.
 The result should be an almost perfect HTML file which can be
 included into the plugins.geany.org website. Do this steps to generate the
 file:
 
-    rst2html --config=rst2html_config.conf README > {your plugin name}.html
+    rst2html5 --config=rst2html_config.conf README > {your plugin name}.html
     tidy -config tidy.conf {your plugin name}.html
 
 
