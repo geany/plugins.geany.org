@@ -133,6 +133,17 @@ wasn't compromised somewhere on the net. You can verify you have the correct
 tarballs by checking if the GPG signature is correct. To do this, follow
 these instructions:</p>
 
+<h3>1.37</h3>
+<ul>
+	<li>Import the key via <code>gpg --recv-keys B7A4039D0630EA07</code></li>
+	<li>Verify the downloaded archive either with
+		<code>gpg --verify geany-plugins-<?php print $version ?>.tar.bz2.sig geany-plugins-<?php print $version ?>.tar.bz2</code> or
+		<code>gpg --verify geany-plugins-<?php print $version ?>.tar.gz.sig geany-plugins-<?php print $version ?>.tar.gz</code>
+	</li>
+</ul>
+
+<h3>Pre-1.37</h3>
+<p>Note: The key <code>B507ACD04BA283C9</code> is outdated, so your GPG-client might give you a warning. However, the signature itself is not affacted by this.</p>
 <ul>
 	<li>Import the key via <code>gpg --recv-keys B507ACD04BA283C9</code></li>
 	<li>Verify the downloaded archive either with
