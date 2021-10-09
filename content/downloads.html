@@ -133,22 +133,22 @@ wasn't compromised somewhere on the net. You can verify you have the correct
 tarballs by checking if the GPG signature is correct. To do this, follow
 these instructions:</p>
 
-<h3>1.37</h3>
+<h3>1.38</h3>
 <ul>
-	<li>Import the key via <code>gpg --recv-keys B7A4039D0630EA07</code></li>
+	<li>Import the key via <code>gpg --recv-keys 01380DF54FD09D02</code></li>
 	<li>Verify the downloaded archive either with
 		<code>gpg --verify geany-plugins-<?php print $version ?>.tar.bz2.sig geany-plugins-<?php print $version ?>.tar.bz2</code> or
 		<code>gpg --verify geany-plugins-<?php print $version ?>.tar.gz.sig geany-plugins-<?php print $version ?>.tar.gz</code>
 	</li>
 </ul>
 
-<h3>Pre-1.37</h3>
-<p>Note: The key B507ACD04BA283C9 is outdated, so your GPG-client might give you a warning. However, the signature itself is not affacted by this.</p>
+<h3>1.37</h3>
+<p>Note: The key B7A4039D0630EA07 is outdated, so your GPG-client might give you a warning. However, the signature itself is not affacted by this.</p>
 <ul>
-	<li>Import the key via <code>gpg --recv-keys B507ACD04BA283C9</code></li>
+	<li>Import the key via <code>gpg --recv-keys B7A4039D0630EA07</code></li>
 	<li>Verify the downloaded archive either with
-		<code>gpg --verify geany-plugins-<?php print $version ?>.tar.bz2.sig geany-plugins-<?php print $version ?>.tar.bz2</code> or
-		<code>gpg --verify geany-plugins-<?php print $version ?>.tar.gz.sig geany-plugins-<?php print $version ?>.tar.gz</code>
+		<code>gpg --verify geany-plugins-1.38.tar.bz2.sig geany-plugins-1.38.tar.bz2</code> or
+		<code>gpg --verify geany-plugins-1.38.tar.gz.sig geany-plugins-1.38.tar.gz</code>
 	</li>
 </ul>
 
@@ -158,8 +158,8 @@ something went wrong.</p>
 
 <p>Another complete example:</p>
 <code>
-wget https://download.geany.org/frlan-pubkey-2020.txt<br />
-gpg --import &lt; frlan-pubkey-2020.txt<br />
+wget https://download.geany.org/frlan-pubkey.txt<br />
+gpg --import &lt; frlan-pubkey.txt<br />
 gpg --verify geany-plugins-<?php print $version ?>.tar.bz2.sig geany-plugins-<?php print $version ?>.tar.bz2
 </code>
 
