@@ -74,7 +74,7 @@ create a pull-request with your images please proceed as follows:
 If you write HTML directly you can simply link to the image on github.
 If you use restructuredText then also simply use the full URL for the image link, e.g.:
 
-    image:: http://plugins.geany.org/images/plugins/{your plugin name}/example.png
+    image:: https://plugins.geany.org/images/plugins/{your plugin name}/example.png
 
 Contact
 -------

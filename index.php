@@ -104,7 +104,7 @@ print '<?xml version="1.0"?>';
 		<hr />
 
 		<ul>
-			<li><a href="http://geany.org/">Geany</a></li>
+			<li><a href="https://geany.org/">Geany</a></li>
 		</ul>
 
 		<hr />
@@ -128,7 +128,7 @@ print '<?xml version="1.0"?>';
 		</p>
 
 		<p> Contact the <a
-		href="http://www.geany.org/Support/MailingList">Geany Team</a> for
+		href="https://www.geany.org/support/mailing-lists/">Geany Team</a> for
 		questions.</p>
 	</div>
 </body>
