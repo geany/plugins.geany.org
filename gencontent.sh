@@ -114,7 +114,7 @@ function prepare_source_dir()
 {
     if [ ! -d "${SOURCESDIR}" ]; then
         echo -e "Directory containing sources $SOURCESDIR could not be found.\nTrying to clone from git...\n"
-        git clone git://github.com/geany/geany-plugins.git ${SOURCESDIR}
+        git clone https://github.com/geany/geany-plugins.git ${SOURCESDIR}
     fi
 
     if [ $? -ne 0 ]; then
