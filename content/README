@@ -79,9 +79,5 @@ If you use restructuredText then also simply use the full URL for the image link
 Contact
 -------
 
-The website plugins.geany.org is currently maintained by `Dominic Hopf
-<http://dominichopf.de>`_. His mail address is dmaphy@googlemail.com. If
-you have any questions concerning this site, please consider to contact him
-first of all. If it takes too long for an answer, feel free to kick his
-butt at the `#geany <irc://chat.freenode.net/geany>`_ IRC channel on
-chat.freenode.net.
+If you have any questions concerning this site, please consider to open an issue
+in the GitHub repository at https://github.com/geany/plugins.geany.org.
