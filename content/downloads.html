@@ -5,6 +5,7 @@ $dir = "./geany-plugins/";
 if($handle = opendir($dir))
 {
 	$versions = Array();
+	$wversions = Array();
 	$hash = isset($_GET['hash']) ? $_GET['hash'] : "md5";
 
 	while(false !== ($file = readdir($handle)))
@@ -16,10 +17,16 @@ if($handle = opendir($dir))
 			$versions[] = $file;
 		}
 
-		if( preg_match("/.exe$/", $file) )
+		if( preg_match("/_setup.exe$/", $file) )
 		{
 			$file = substr($file, 14);
 			$file = substr($file, 0, -10);
+			$wversions[] = $file;
+		}
+		if( preg_match("/_setup_unsigned.exe$/", $file) )
+		{
+			$file = substr($file, 14);
+			$file = substr($file, 0, -19);
 			$wversions[] = $file;
 		}
 	}
@@ -103,14 +110,14 @@ if($handle = opendir($dir))
 		file_exists($dir . "geany-plugins-" . $wversion . "_setup_unsigned.exe.sig"))
 	{
 		echo "<tr>";
-		echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$wversion . "_setup_unsigned.exe\">geany-plugins-" . $wversion . "_setup.exe</a></td>";
+		echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$wversion . "_setup_unsigned.exe\">geany-plugins-" . $wversion . "_setup_unsigned.exe</a></td>";
 		echo "	<td>Win32 Installer</td>";
 		echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$wversion . "_setup_unsigned.exe.sig\">GPG Signature</a></td>";
 		if ($hash == "sha1")
 		{
-			echo "	<td><pre>" . sha1_file($dir . "geany-plugins-" .  $wversion . "_setup.exe") . "</pre></td>";
+			echo "	<td><pre>" . sha1_file($dir . "geany-plugins-" .  $wversion . "_setup_unsigned.exe") . "</pre></td>";
 		} else {
-			echo "  <td><pre>" . md5_file($dir . "geany-plugins-" .  $wversion . "_setup.exe") . "</pre></td>";
+			echo "  <td><pre>" . md5_file($dir . "geany-plugins-" .  $wversion . "_setup_unsigned.exe") . "</pre></td>";
 		}
 		echo "</tr>";
 	}
