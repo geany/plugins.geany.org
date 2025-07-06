@@ -99,8 +99,8 @@ if($handle = opendir($dir))
 	}
 
 
-	if(file_exists($dir . "geany-plugins-" . $wversion . "_setup.exe") &&
-		file_exists($dir . "geany-plugins-" . $wversion . "_setup.exe.sig"))
+	if(file_exists($dir . "geany-plugins-" . $wversion . "_setup_unsigned.exe") &&
+		file_exists($dir . "geany-plugins-" . $wversion . "_setup_unsigned.exe.sig"))
 	{
 		echo "<tr>";
 		echo "	<td><a href=\"./geany-plugins/geany-plugins-" .$wversion . "_setup_unsigned.exe\">geany-plugins-" . $wversion . "_setup.exe</a></td>";
