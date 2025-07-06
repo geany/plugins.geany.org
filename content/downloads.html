@@ -133,6 +133,23 @@ wasn't compromised somewhere on the net. You can verify you have the correct
 tarballs by checking if the GPG signature is correct. To do this, follow
 these instructions:</p>
 
+<h3>2.1</h3>
+<ul>
+	<li>Import the key via <code>gpg --recv-keys 4AECE5B24CB93825D6F6389398035DF09A47DD9E</code></li>
+	<li>Verify the downloaded archive either with
+		<code>gpg --verify geany-plugins-<?php print $version ?>.tar.bz2.sig geany-plugins-<?php print $version ?>.tar.bz2</code> or
+		<code>gpg --verify geany-plugins-<?php print $version ?>.tar.gz.sig geany-plugins-<?php print $version ?>.tar.gz</code>
+	</li>
+</ul>
+
+The fingerprint for the key looks like hat
+<code>
+pub   ed25519 2025-07-06 [SC] [verfällt: 2028-07-05]
+      4AEC E5B2 4CB9 3825 D6F6  3893 9803 5DF0 9A47 DD9E
+uid        [ ultimativ ] Frank Lanitz (Mostly for signing) <frank@geany.org>
+sub   cv25519 2025-07-06 [E] [verfällt: 2028-07-05]
+</code>
+
 <h3>1.38</h3>
 <ul>
 	<li>Import the key via <code>gpg --recv-keys 01380DF54FD09D02</code></li>
@@ -158,8 +175,8 @@ something went wrong.</p>
 
 <p>Another complete example:</p>
 <code>
-wget https://download.geany.org/frlan-pubkey.txt<br />
-gpg --import &lt; frlan-pubkey.txt<br />
+wget https://download.geany.org/9A47DD9E-pubkey.txt<br />
+gpg --import &lt; 9A47DD9E-pubkey.txt<br />
 gpg --verify geany-plugins-<?php print $version ?>.tar.bz2.sig geany-plugins-<?php print $version ?>.tar.bz2
 </code>
 
