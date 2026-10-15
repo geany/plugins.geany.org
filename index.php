@@ -72,6 +72,7 @@ print '<?xml version="1.0"?>';
 			<li><a href="quick_open_file.html">Geany Quick Open File Plugin</a></li>
 			<li><a href="togglebars.html">Togglebars</a></li>
 			<li><a href="pynav.html">pynav</a></li>
+			<li><a href="playdate.html">Playdate</a></li>
 		</ul>
 
 		<hr />
