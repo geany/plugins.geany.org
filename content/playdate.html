@@ -1,0 +1,240 @@
+<div class="section" id="playdate">
+	<h3>
+		Playdate
+	</h3>
+	<div class="contents topic" id="contents">
+		<p class="topic-title">
+			<a class="reference internal" href="#top">Contents</a>
+		</p>
+		<ul class="simple">
+			<li>
+				<a class="reference internal" href="#playdate" id="toc-entry-1" name=
+				"toc-entry-1">Playdate</a>
+			</li>
+			<li>
+				<a class="reference internal" href="#about" id="toc-entry-2" name="toc-entry-2">About</a>
+			</li>
+			<li>
+				<a class="reference internal" href="#features" id="toc-entry-3" name=
+				"toc-entry-3">Features</a>
+			</li>
+			<li>
+				<a class="reference internal" href="#requirements" id="toc-entry-4" name=
+				"toc-entry-4">Requirements</a>
+			</li>
+			<li>
+				<a class="reference internal" href="#usage" id="toc-entry-5" name="toc-entry-5">Usage</a>
+			</li>
+			<li>
+				<a class="reference internal" href="#development" id="toc-entry-6" name=
+				"toc-entry-6">Development</a>
+			</li>
+			<li>
+				<a class="reference internal" href="#known-issues" id="toc-entry-7" name=
+				"toc-entry-7">Known issues</a>
+			</li>
+			<li>
+				<a class="reference internal" href="#license" id="toc-entry-8" name=
+				"toc-entry-8">License</a>
+			</li>
+			<li>
+				<a class="reference internal" href="#bugs-questions-bugs-homepage" id="toc-entry-9" name=
+				"toc-entry-9">Bugs, questions, bugs, homepage</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="section" id="about">
+	<h3>
+		About
+	</h3>
+	<p>
+		Playdate is a plugin for Geany that brings the <a class="reference external" href=
+		"https://play.date">Panic Playdate</a> handheld game development workflow into the editor:
+		compile with <tt class="docutils literal">pdc</tt>, run the result in the Playdate Simulator,
+		and jump to compiler errors from Geany's Compiler tab.
+	</p>
+	<p>
+		It also installs optional Geany tags for the Playdate Lua API so autocomplete and call tips
+		work for <tt class="docutils literal">playdate.*</tt> symbols.
+	</p>
+</div>
+<div class="section" id="features">
+	<h3>
+		Features
+	</h3>
+	<ul class="simple">
+		<li>
+			<strong>Build</strong> — runs <tt class="docutils literal">$SDK/bin/pdc &lt;source&gt;
+			&lt;output&gt;</tt>
+		</li>
+		<li>
+			<strong>Build and Run</strong> — build, then launch the Playdate Simulator
+		</li>
+		<li>
+			<strong>Run in Simulator</strong> — open the existing <tt class="docutils literal">.pdx</tt>
+			bundle
+		</li>
+		<li>
+			<strong>Clean</strong> — remove the generated <tt class="docutils literal">.pdx</tt> output
+			directory
+		</li>
+		<li>
+			<strong>Open Simulator</strong> — start the Simulator without building
+		</li>
+		<li>
+			<strong>Compiler tab integration</strong> — <tt class="docutils literal">pdc</tt> <tt class=
+			"docutils literal">warning:</tt> / <tt class="docutils literal">error:</tt> lines become
+			clickable messages (<tt class="docutils literal">file:line</tt>)
+		</li>
+		<li>
+			<strong>Preferences</strong> — SDK path, source directory, output <tt class=
+			"docutils literal">.pdx</tt>, product name and <tt class="docutils literal">pdc</tt> flags
+			(<tt class="docutils literal"><span class="pre">-s</span></tt>, <tt class=
+			"docutils literal"><span class="pre">--no-compress</span></tt>, <tt class=
+			"docutils literal"><span class="pre">-v</span></tt>, <tt class=
+			"docutils literal"><span class="pre">-q</span></tt>, <tt class=
+			"docutils literal"><span class="pre">-k</span></tt>)
+		</li>
+		<li>
+			<strong>API tags</strong> — Tools → Playdate → Install API Tags installs ~1800 tags generated
+			from <a class="reference external" href=
+			"https://github.com/notpeter/playdate-luacats">playdate-luacats</a>
+		</li>
+		<li>
+			<strong>Keybindings</strong> — Build and Run on <tt class="docutils literal">F5</tt> by
+			default (rebindable)
+		</li>
+	</ul>
+	<p>
+		Command shapes follow <a class="reference external" href=
+		"https://github.com/orta/vscode-playdate">orta/vscode-playdate</a> and <a class=
+		"reference external" href=
+		"https://github.com/midouest/vscode-playdate-debug">midouest/vscode-playdate-debug</a>.
+	</p>
+</div>
+<div class="section" id="requirements">
+	<h3>
+		Requirements
+	</h3>
+	<ul class="simple">
+		<li>Geany &gt;= 1.26 (tested with 2.1, GTK3)
+		</li>
+		<li>Playdate SDK from <a class="reference external" href=
+		"https://play.date/dev/">https://play.date/dev/</a> (<tt class="docutils literal">pdc</tt> +
+		Simulator)
+		</li>
+	</ul>
+	<p>
+		On Linux the simulator binary is <tt class="docutils literal">PlaydateSimulator</tt>. On macOS
+		and Windows the paths differ; the plugin currently focuses on Linux.
+	</p>
+</div>
+<div class="section" id="usage">
+	<h3>
+		Usage
+	</h3>
+	<ol class="arabic">
+		<li>
+			<p class="first">
+				Install the Playdate SDK and either export <tt class=
+				"docutils literal">PLAYDATE_SDK_PATH</tt> or set the SDK path in the plugin preferences.
+			</p>
+		</li>
+		<li>
+			<p class="first">
+				Open a file inside a Playdate project. The project root is the directory that
+				<em>contains</em> <tt class="docutils literal">Source/</tt> or <tt class=
+				"docutils literal">source/</tt>:
+			</p>
+			<pre class="literal-block">
+MyGame/
+├── source/					(or Source/)
+│	 ├── main.lua
+│	 └── pdxinfo
+└── MyGame.pdx/			(output)
+</pre>
+		</li>
+		<li>
+			<p class="first">
+				Use Tools → Playdate → <strong>Build and Run</strong> (or <tt class=
+				"docutils literal">F5</tt>).
+			</p>
+		</li>
+		<li>
+			<p class="first">
+				Compiler messages appear in the Compiler tab; double-click jumps to the file and line.
+			</p>
+		</li>
+		<li>
+			<p class="first">
+				Optionally run <strong>Install API Tags</strong> and restart Geany to get Playdate Lua
+				autocomplete.
+			</p>
+		</li>
+	</ol>
+	<p>
+		Empty Source/Output fields in preferences mean auto-detect.
+	</p>
+</div>
+<div class="section" id="development">
+	<h3>
+		Development
+	</h3>
+	<p>
+		Source lives in the combined geany-plugins repository:
+	</p>
+	<pre class="literal-block">
+git clone https://github.com/geany/geany-plugins.git
+cd geany-plugins
+./autogen.sh --enable-playdate
+make
+</pre>
+	<p>
+		Standalone development repository: <a class="reference external" href=
+		"https://github.com/davi19/geany-playdate">https://github.com/davi19/geany-playdate</a>
+	</p>
+</div>
+<div class="section" id="known-issues">
+	<h3>
+		Known issues
+	</h3>
+	<ul class="simple">
+		<li>Simulator launch and path detection currently target Linux.
+		</li>
+		<li>Large embedded API tag data (<tt class="docutils literal">tags_data.h</tt>) makes the
+		object file larger than typical plugins.
+		</li>
+	</ul>
+	<p>
+		Please report issues at <a class="reference external" href=
+		"https://github.com/geany/geany-plugins/issues">https://github.com/geany/geany-plugins/issues</a>
+	</p>
+</div>
+<div class="section" id="license">
+	<h3>
+		License
+	</h3>
+	<p>
+		Playdate is distributed under the terms of the GNU General Public License as published by the
+		Free Software Foundation; either version 3 of the License, or (at your option) any later
+		version. See the file <tt class="docutils literal">COPYING</tt> included with the source code.
+	</p>
+</div>
+<div class="section" id="bugs-questions-bugs-homepage">
+	<h3>
+		Bugs, questions, bugs, homepage
+	</h3>
+	<p>
+		If you found any bugs or want to provide a patch, please open an issue or pull request at
+		<a class="reference external" href=
+		"https://github.com/geany/geany-plugins">https://github.com/geany/geany-plugins</a> or contact
+		Davi Campos Gonçalves (davi19_19(at)hotmail(dot)com).
+	</p>
+	<p>
+		Plugin page: <a class="reference external" href=
+		"//plugins.geany.org/playdate.html">//plugins.geany.org/playdate.html</a> Project
+		home: <a class="reference external" href=
+		"https://github.com/davi19/geany-playdate">https://github.com/davi19/geany-playdate</a>
+	</p>
+</div>
